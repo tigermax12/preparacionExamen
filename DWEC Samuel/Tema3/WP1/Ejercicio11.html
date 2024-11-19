@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validarTelefono(telefono){
+          patron= /^(9|8)\d{2}[ -]?\d{3}[ -]?\d{3}$/;
+          //patron= /^9\d{2}\s\d{3}\s\d{3}$|^9\d{8}$|^9{2}-\d{3}-\d{3}
+          
+          exprReg= new RegExp(patron);
+          console.log(telefono);
+          if(telefono.match(exprReg)){
+                console.log("Numero valido")
+            } else {
+                console.log("Numero con formato incorrecto");
+            }
+        }
+        validarTelefono("941848-896");
+        validarTelefono("941 848 896");
+        validarTelefono("941848896");
+        validarTelefono("841848896");
+        validarTelefono("741848896");
+        validarTelefono("941548896dddd");
+        validarTelefono("941548896555");
+        validarTelefono("941");
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Título</title>
+    </head>
+    <body>
+        <p>This example uses the AddEvenListener()</p>
+        <button id="myBtn">Try it</button>
+        <p id="demo"></p>	
+    <script>
+    var x = document.getElementById("myBtn");
+
+    document.getElementById('myBtn').addEventListener("click", function(){
+        this.style.backgroundColor="red";
+    });
+
+    x.addEventListener("click", function(){
+        x.style.backgroundColor="red";
+    });
+    
+    </script>
+    </body>
+
+</html>

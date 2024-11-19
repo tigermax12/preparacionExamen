@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      window.onload = () => {
+        var maxValue = Number.MAX_VALUE;
+        var minValue = Number.MIN_VALUE;
+        var h1 = document.getElementById("t");
+        var posInf = Number.POSITIVE_INFINITY;
+        var negInf = Number.NEGATIVE_INFINITY;
+        var nan = Number.NaN;
+        var a;
+        var b = null;
+        var c = "aa";
+        var d = 15;
+        var e = true;
+        h1.textContent = "maxValue * 2 = " + maxValue * 2;
+        function verTipos() {
+          alert(typeof a + "\n" + typeof b + "\n" + typeof c + "\n" + typeof(d)+ "\n" + typeof(e));
+        }
+        verTipos();
+        alert("maxValue = " + maxValue);
+        alert("minValue = " + minValue);
+        alert("maxValue * 2  = " + maxValue * 2);
+        alert("infinitoPositivo = " + posInf + " " +  typeof(posInf));
+        alert("infinitoNegativo = " + negInf);
+        alert("NaN = " + nan +" " +  typeof(nan));
+        alert(nan == null)
+      };
+    </script>
+  </head>
+  <body>
+    <h1 id="t"></h1>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventana Movible</title>
+</head>
+<body>
+
+    <input type="button" value="Abrir y Mover Ventana" onclick="abrirVentana()">
+    <input type="text" id="repeticiones" placeholder="Número de movimientos">
+
+    <script>
+        var ventanaSecundaria;
+        var intervalId;
+        var movimientosRestantes;
+
+        function abrirVentana() {
+            // Abrir la nueva ventana
+            ventanaSecundaria = window.open("", "Nueva Ventana", "width=300,height=200");
+
+            movimientosRestantes = parseInt(document.getElementById("repeticiones").value);
+
+            intervalId = setInterval(desplazarVentana, 1000);
+        }
+
+        function desplazarVentana() {
+            if (ventanaSecundaria && !ventanaSecundaria.closed && movimientosRestantes > 0) {
+
+                const nuevaX = Math.floor(Math.random() * (window.screen.width - 300));
+                const nuevaY = Math.floor(Math.random() * (window.screen.height - 200));
+
+                ventanaSecundaria.moveTo(nuevaX, nuevaY);
+
+                movimientosRestantes--;
+            } else {
+                clearInterval(intervalId);
+                if (ventanaSecundaria && !ventanaSecundaria.closed) {
+                    ventanaSecundaria.close();
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

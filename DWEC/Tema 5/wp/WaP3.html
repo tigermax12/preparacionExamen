@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3: Movimiento del Conejo</title>
+</head>
+<body>
+    <h2>Ejercicio 3: Movimiento del Conejo</h2>
+    <button id="comenzar">Comenzar</button>
+    <button id="acelerar">Acelerar</button>
+    <button id="parar">Parar</button>
+    <img src="conejo.png" id="conejo" alt="Conejo" style="position:absolute; top: 50px; left: 50px;">
+
+    <script>
+        const conejo = document.getElementById('conejo');
+        let movimiento;
+        let velocidad = 10;
+
+        document.getElementById('comenzar').addEventListener('click', () => {
+            movimiento = setInterval(() => {
+                const nuevaPosicion = conejo.offsetLeft + velocidad;
+                conejo.style.left = nuevaPosicion + 'px';
+            }, 100);
+        });
+
+        document.getElementById('acelerar').addEventListener('click', () => {
+            velocidad += 5;
+        });
+
+        document.getElementById('parar').addEventListener('click', () => {
+            clearInterval(movimiento);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Título</title>
+    </head>
+    <body>
+        <div id="elementosTag">
+            <h3>Lista dinámica</h3>
+            <p></p>
+            <ul></ul>
+            <hr/>
+            <div>
+                <span>Nuevo Texto</span>
+                <input type="text" name="" id="text">
+                <button id="actualizar" onclick="addItemsLista();">Añadir</button>
+            </div>
+        </div>
+        <script>
+            function addItemsLista(){
+              lista = document.getElementsByTagName('ul')[0];
+              document.getElementById('text').value !='' ? 
+              lista.insertAdjacentHTML('beforeEnd','<li> ' + document.getElementById('text').value + '</li>') :
+               document.getElementById('text').value='';
+              document.getElementById('text').value = '';
+           
+            /*  
+            Inserts the given HTML text at the specified position relative to the element.
+            Possible values for the position parameter in the insertAdjacentHTML function are:
+            - 'beforebegin': Before the element itself.
+            - 'afterbegin': Just inside the element, before its first child.
+            - 'beforeend': Just inside the element, after its last child.
+            - 'afterend': After the element itself.
+            */
+            }
+        </script>
+        
+    </body>
+</html>

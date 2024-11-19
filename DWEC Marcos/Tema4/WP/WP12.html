@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Título</title>
+  <style>
+    td{
+      color:black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button onclick="anadir();">Añadir usuario a la tabla</button>
+  <table id="tabla" style="border:1px dotted lightblue"></table>
+  <script>
+    /*12.Define una aplicación web que te permita añadir usuarios a una lista junto con 
+          su edad. Aquellos usuarios mayores de edad pero menores de 65 deberán 
+          tener un color de letra verde, mientras que los mayores de 65 años 
+          presentarán un color rojo. El resto de usuarios presentarán el color por 
+          defecto definido en el documento.*/
+
+    if (localStorage.getItem('contador') == null) {
+      localStorage.setItem('contador', 0);
+
+    } else {
+      for (var i = 0; i < localStorage.getItem('contador'); i++) {
+        var nombre = document.createElement('td');
+        nombre.textContent = localStorage.getItem('nombre' + i);
+        var edad = document.createElement('td');
+        edad.textContent = localStorage.getItem('edad' + i);
+        var tr = document.createElement('tr');
+        if (localStorage.getItem('edad' + i) > 65) {
+          nombre.style.color = 'red';
+          edad.style.color = 'red';
+        } else if (localStorage.getItem('edad' + i) > 18) {
+          nombre.style.color = 'green';
+          edad.style.color = 'green';
+        }
+        tr.appendChild(nombre);
+        tr.appendChild(edad);
+        document.getElementById('tabla').appendChild(tr);
+      }
+    }
+    function anadir() {
+      var n = prompt('Introduce nombre: ');
+      var e = prompt('Introduce edad: ');
+      var nombre = document.createElement('td');
+      nombre.textContent = n;
+      var edad = document.createElement('td');
+      edad.textContent = e;
+      var tr = document.createElement('tr');
+      var contador = localStorage.getItem('contador');
+      localStorage.setItem('nombre' + contador, n);
+      localStorage.setItem('edad' + contador, e);
+      localStorage.setItem('contador', ++contador);
+      if (e > 65) {
+        nombre.style.color = 'red';
+        edad.style.color = 'red';
+      } else if (e > 18) {
+        {
+          nombre.style.color = 'green';
+          edad.style.color = 'green';
+        }
+      }
+
+      tr.appendChild(nombre);
+      tr.appendChild(edad);
+      document.getElementById('tabla').appendChild(tr);
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 6: Formulario de Alta y Registro Bancario</title>
+</head>
+<body>
+    <h2>Ejercicio 6: Formulario de Alta y Registro Bancario</h2>
+
+    <!-- Formulario de Alta -->
+    <h3>Formulario de Alta</h3>
+    <form action="alta.php" method="POST">
+        <label>Nombre: <input type="text" name="nombre" required></label><br>
+        <label>Apellido: <input type="text" name="apellido" required></label><br>
+        <label>Correo Electrónico: <input type="email" name="email" required></label><br>
+        <label>Contraseña: <input type="password" name="password" required></label><br>
+        <button type="submit">Registrar</button>
+    </form>
+
+    <!-- Formulario de Datos Bancarios -->
+    <h3>Formulario de Datos Bancarios</h3>
+    <form action="pasarelaPago.php" method="POST">
+        <label>Nombre del Titular: <input type="text" name="titular" required></label><br>
+        <label>Número de Tarjeta: <input type="text" name="tarjeta" maxlength="16" required></label><br>
+        <label>Fecha de Expiración: <input type="month" name="expiracion" required></label><br>
+        <label>Código de Seguridad (CVV): <input type="text" name="cvv" maxlength="3" required></label><br>
+        <button type="submit">Guardar Datos Bancarios</button>
+    </form>
+</body>
+</html>

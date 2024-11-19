@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Resueltos DWEC Tema 5</title>
+</head>
+<body>
+    <h1>Ejercicios Resueltos: Eventos y Formularios</h1>
+
+    <!-- Ejercicio 1 -->
+    <h2>1. Crear historia desde inputs</h2>
+    <p>Generar una historia usando valores de inputs:</p>
+    <form id="formHistoria">
+        <input type="text" id="nombre" placeholder="Nombre del personaje" required>
+        <input type="text" id="accion" placeholder="Acción realizada" required>
+        <input type="text" id="adjetivo" placeholder="Adjetivo descriptivo" required>
+        <input type="text" id="victima" placeholder="Nombre de la víctima" required>
+        <button type="button" id="botonHistoria">Crear Historia</button>
+    </form>
+    <p id="resultadoHistoria"></p>
+    <script>
+        document.getElementById("botonHistoria").addEventListener("click", function() {
+            const nombre = document.getElementById("nombre").value;
+            const accion = document.getElementById("accion").value;
+            const adjetivo = document.getElementById("adjetivo").value;
+            const victima = document.getElementById("victima").value;
+            const historia = `${nombre} ${accion} su coche al ${adjetivo} de ${victima}.`;
+            document.getElementById("resultadoHistoria").innerText = historia;
+        });
+    </script>
+
+    <!-- Ejercicio 3 -->
+    <h2>3. Mover un objeto (conejo) en la pantalla</h2>
+    <p>Mueve el conejo, detén su movimiento y aumenta su velocidad:</p>
+    <button id="comenzar">Comenzar</button>
+    <button id="parar" disabled>Parar</button>
+    <button id="acelerar" disabled>Acelerar</button>
+    <div id="conejo" style="position:absolute; top:50px; left:50px; width:50px; height:50px; background-color:gray;"></div>
+    <script>
+        let intervalo;
+        let velocidad = 100;
+        let posicion = 0;
+
+        document.getElementById("comenzar").addEventListener("click", function() {
+            intervalo = setInterval(() => {
+                posicion += 10;
+                document.getElementById("conejo").style.left = `${posicion}px`;
+            }, velocidad);
+            document.getElementById("comenzar").disabled = true;
+            document.getElementById("parar").disabled = false;
+            document.getElementById("acelerar").disabled = false;
+        });
+
+        document.getElementById("parar").addEventListener("click", function() {
+            clearInterval(intervalo);
+            document.getElementById("comenzar").disabled = false;
+            document.getElementById("parar").disabled = true;
+            document.getElementById("acelerar").disabled = true;
+        });
+
+        document.getElementById("acelerar").addEventListener("click", function() {
+            clearInterval(intervalo);
+            velocidad /= 2;
+            intervalo = setInterval(() => {
+                posicion += 10;
+                document.getElementById("conejo").style.left = `${posicion}px`;
+            }, velocidad);
+        });
+    </script>
+
+    <!-- Ejercicio 4 -->
+    <h2>4. Validar correo electrónico</h2>
+    <form id="formCorreo">
+        <input type="email" id="correo" placeholder="Introduce tu correo" required>
+        <button type="button" id="validarCorreo">Validar</button>
+    </form>
+    <p id="resultadoCorreo"></p>
+    <script>
+        document.getElementById("validarCorreo").addEventListener("click", function() {
+            const correo = document.getElementById("correo").value;
+            const regex = /^[^@]+@[^@]+\.[^@]+$/;
+            const valido = regex.test(correo);
+            document.getElementById("resultadoCorreo").innerText = valido ? "Correo válido" : "Correo no válido";
+        });
+    </script>
+
+    <!-- Ejercicio 7 -->
+    <h2>7. Validar suscripción con restricciones</h2>
+    <form id="formSuscripcion">
+        <input type="text" id="nombreSuscriptor" placeholder="Nombre" required>
+        <input type="text" id="nif" placeholder="NIF" required>
+        <input type="email" id="correoSuscriptor" placeholder="Correo electrónico" required>
+        <select id="pais">
+            <option value="España">España</option>
+            <option value="Italia">Italia</option>
+            <option value="Otro">Otro</option>
+        </select>
+        <button type="button" id="validarSuscripcion">Validar Suscripción</button>
+    </form>
+    <p id="resultadoSuscripcion"></p>
+    <script>
+        document.getElementById("validarSuscripcion").addEventListener("click", function() {
+            const pais = document.getElementById("pais").value;
+            const correo = document.getElementById("correoSuscriptor").value;
+            const nif = document.getElementById("nif").value;
+            const regexCorreo = /^[^@]+@(?!hotmail.com|yahoo.es)[^@]+\.[^@]+$/;
+            const regexNIF = /^[0-9]{8}[A-Z]$/;
+            const paisValido = pais === "España" || pais === "Italia";
+            const correoValido = regexCorreo.test(correo);
+            const nifValido = regexNIF.test(nif) && !/[XMI]/.test(nif.slice(-1));
+
+            const valido = paisValido && correoValido && nifValido;
+            document.getElementById("resultadoSuscripcion").innerText = valido
+                ? "Suscripción válida"
+                : "Suscripción no válida. Revisa los datos.";
+        });
+    </script>
+</body>
+</html>

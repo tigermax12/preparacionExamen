@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructuras de Datos JavaScript Avanzado</title>
+</head>
+<body>
+    <!-- 
+        Resumen detallado:
+        1. Tipos y Tipado Dinámico:
+           - Tipado débil permite operar con diferentes tipos.
+           - Coerción de tipos puede ser implícita (JavaScript convierte automáticamente) o explícita (mediante funciones).
+           - Evitar coerción: Usar comparadores estrictos como === y !==.
+        2. Operadores y Expresiones:
+           - Operadores básicos: Aritméticos, lógicos, asignación, comparación.
+           - Buenas prácticas: Evitar operaciones ambiguas (mezclar booleanos y números).
+        3. Estructuras de Datos:
+           - Set: Colección de valores únicos. Métodos: add(), delete(), has(), clear().
+           - Map: Colección clave-valor. Métodos: set(), get(), delete(), has().
+           - Pilas: LIFO. Métodos: push(), pop().
+           - Colas: FIFO. Métodos: push(), shift().
+           - Listas enlazadas: Nodos con valor y puntero al siguiente.
+    -->
+
+    <h1>Estructuras de Datos y Ejercicios en JavaScript</h1>
+
+    <h2>1. Operaciones con Set</h2>
+    <button onclick="ejemploSet()">Ejecutar Ejemplo de Set</button>
+    <p id="resultadoSet"></p>
+
+    <h2>2. Operaciones con Map</h2>
+    <button onclick="ejemploMap()">Ejecutar Ejemplo de Map</button>
+    <p id="resultadoMap"></p>
+
+    <h2>3. Uso de Pilas</h2>
+    <button onclick="ejemploPila()">Ejecutar Ejemplo de Pila</button>
+    <p id="resultadoPila"></p>
+
+    <h2>4. Uso de Colas</h2>
+    <button onclick="ejemploCola()">Ejecutar Ejemplo de Cola</button>
+    <p id="resultadoCola"></p>
+
+    <script>
+        // 1. Ejemplo de Set
+        function ejemploSet() {
+            const miSet = new Set();
+            miSet.add(1);
+            miSet.add(2);
+            miSet.add(2); // Ignorado porque el valor ya existe
+            miSet.add(3);
+            document.getElementById('resultadoSet').innerText = `Elementos en el Set: ${[...miSet].join(", ")}`;
+        }
+
+        // 2. Ejemplo de Map
+        function ejemploMap() {
+            const miMap = new Map();
+            miMap.set('clave1', 'valor1');
+            miMap.set('clave2', 'valor2');
+            const valor = miMap.get('clave1');
+            document.getElementById('resultadoMap').innerText = `Clave1 tiene el valor: ${valor}`;
+        }
+
+        // 3. Ejemplo de Pila
+        function ejemploPila() {
+            const pila = [];
+            pila.push('A');
+            pila.push('B');
+            pila.push('C');
+            pila.pop(); // Quita el último elemento
+            document.getElementById('resultadoPila').innerText = `Elementos en la pila: ${pila.join(", ")}`;
+        }
+
+        // 4. Ejemplo de Cola
+        function ejemploCola() {
+            const cola = [];
+            cola.push('1');
+            cola.push('2');
+            cola.push('3');
+            cola.shift(); // Quita el primer elemento
+            document.getElementById('resultadoCola').innerText = `Elementos en la cola: ${cola.join(", ")}`;
+        }
+    </script>
+</body>
+</html>

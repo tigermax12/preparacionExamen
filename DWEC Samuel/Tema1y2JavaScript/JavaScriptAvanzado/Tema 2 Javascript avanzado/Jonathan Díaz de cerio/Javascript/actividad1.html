@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var maxValue = Number.MAX_VALUE;
+        var minValue = Number.MIN_VALUE;
+        var num1 = Number.POSITIVE_INFINITY;
+        var num2 = Number.NEGATIVE_INFINITY;
+        var num3 = Number.NaN;
+        var a;
+        var b=null;
+        var c="aa";
+        var d= 15;
+        var e =true;
+        function verTipos()
+        {
+            alert(typeof(a)+ '\n'+ typeof(b)+ '\n'+typeof(c)+ '\n'+typeof(d)+ '\n'+ typeof(e))
+        }
+        verTipos();
+        alert("Max Value: " + maxValue);
+        alert("Min Value: " + minValue);
+        alert("Valor especial: " + maxValue * 2);
+        alert("Infinito positivo: " + num1);
+        alert("Infinito negativo: " + num2);
+        alert("No numero: " + num3);
+        alert("Typeof de NaN" + typeof(num3));
+
+    </script>
+</body>
+</html>

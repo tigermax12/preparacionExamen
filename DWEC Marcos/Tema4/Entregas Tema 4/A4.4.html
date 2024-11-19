@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título</title>
+  </head>
+  <body>
+    <script>
+      var ventana = window.open("", "", "width=300,height=200");
+      function moverVentana() {
+        x = Math.random()*1000;
+        y = Math.random()*1000;
+        console.log(x);
+        console.log(y);
+        ventana.moveTo(x,y);
+        texto = document.getElementById('x');
+        texto.innerText = Math.floor(x*1000) + ' ' + Math.floor(y*1000);
+    }
+    </script>
+    <button onclick="moverVentana()">Mover ventana</button>
+    <p>
+      Coordenadas: <b><p id="x"></p></b>
+    </p>
+  </body>
+</html>

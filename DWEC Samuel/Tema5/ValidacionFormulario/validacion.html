@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validar(event) {
+            // Evitar que el formulario se envíe automáticamente
+            event.preventDefault();
+
+            // Validar cada campo
+            if (validarDNI() && validarCorreoElectronico() && validarTelefono()) {
+                alert("Formulario validado");
+                // Envía el formulario manualmente si es válido
+                event.target.submit();
+            }
+        }
+
+        function validarDNI() {
+            var DNI = document.getElementById('DNI').value;
+            var validacion = /^[0-9]{8}[A-Z]$/;
+            if (!validacion.test(DNI)) {
+                alert("DNI no válido");
+                return false;
+            }
+            return true;
+        }
+
+        function validarCorreoElectronico() {
+            var correoElectronico = document.getElementById('correoElectronico').value;
+            if (correoElectronico === "") {
+                alert("Rellene el campo de correo electrónico");
+                return false;
+            }
+            return true;
+        }
+
+        function validarTelefono() {
+            var telefono = document.getElementById('telefono').value;
+            var validacion = /^[0-9]{9}$/;
+            if (!validacion.test(telefono)) {
+                alert("Teléfono no válido");
+                return false;
+            }
+            return true;
+        }
+
+        // Escuchar el evento de envío del formulario
+        document.addEventListener('DOMContentLoaded', function () {
+            var formulario = document.querySelector('form');
+            formulario.addEventListener('submit', validar);
+        });
+    </script>
+</head>
+<body>
+    <form action="" method="get" name="formulario">
+        <input type="text" id="DNI" name="DNI" placeholder="DNI">
+        <input type="text" id="correoElectronico" name="correoElectronico" placeholder="Correo Electrónico">
+        <input type="text" id="telefono" name="telefono" placeholder="Teléfono">
+        <button type="submit">Validar</button>
+    </form>
+</body>
+</html>

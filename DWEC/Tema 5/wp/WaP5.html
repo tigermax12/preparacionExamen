@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 5: Formulario de Alta de Alumnos</title>
+</head>
+<body>
+    <h2>Ejercicio 5: Formulario de Alta de Alumnos</h2>
+    <form id="alta-form">
+        <label>Nombre y Apellidos: <input type="text" id="nombreAlumno" required></label><br>
+        <label>Titulación: 
+            <select id="titulacion">
+                <option>Ingeniería</option>
+                <option>Medicina</option>
+                <option>Derecho</option>
+            </select>
+        </label><br>
+        <label>Curso: 
+            <select id="curso">
+                <option>1º</option>
+                <option>2º</option>
+                <option>3º</option>
+                <option>4º</option>
+            </select>
+        </label><br>
+        <label>Año Académico: <input type="number" id="anio" min="2023" max="2024" required></label><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="formulario-resultado"></div>
+
+    <script>
+        document.getElementById('alta-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nombre = document.getElementById('nombreAlumno').value;
+            const titulacion = document.getElementById('titulacion').value;
+            const curso = document.getElementById('curso').value;
+            const anio = document.getElementById('anio').value;
+            document.getElementById('formulario-resultado').textContent = 
+                `Alta registrada: ${nombre}, ${titulacion}, Curso ${curso}, Año ${anio}`;
+        });
+    </script>
+</body>
+</html>

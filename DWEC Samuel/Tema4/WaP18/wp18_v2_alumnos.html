@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+	<title>Adding and Removing Elements</title>
+	<style>
+		table {
+			border-collapse: collapse;
+		}
+		td, th {
+			padding: 5px;
+			border: 1px solid #ccc;
+		}
+		tr:nth-child(2n+1)
+		{
+			background-color: #eeffee;
+		}
+	</style>
+	<script>
+
+		window.onload=function(){
+			var e=document.getElementsByTagName("tr");
+			for (var i = 0; i < e.length; i++) {
+				e[i].addEventListener("click", function(){
+					borrar(this);
+				});
+			};
+		}
+		
+		function borrar(elemento){
+			console.log(elemento);
+			elemento.parentNode.removeChild(elemento);
+		
+		}	
+			
+	</script>
+</head>
+<body>
+	<table id="mixed">
+		<tbody>
+			<tr>
+				<th>Value One</th>
+				<th>Value two</th>
+				<th>Value three</th>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<td>123.45</td>
+				<td>apple</td>
+				<td>true</td>
+			</tr>
+			<tr>
+				<td>65</td>
+				<td>banana</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>1034.99</td>
+				<td>cherry</td>
+				<td>false</td>
+			</tr>
+		</tbody>
+	</table>
+	<div id="result"></div>
+</body>

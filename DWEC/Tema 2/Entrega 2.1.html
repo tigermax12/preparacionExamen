@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios JavaScript</title>
+</head>
+<body>
+    <script WP 6>
+        for (let i = 1; i <= 1000; i++) {
+            if (i % 6 === 0) {
+                console.log(i);
+            }
+        }
+    </script>
+    
+    <script WP 7>
+        function tipoMotor(tipo) {
+            switch (tipo) {
+                case 0:
+                    console.log("No hay establecido un valor definido para el tipo de bomba");
+                    break;
+                case 1:
+                    console.log("La bomba es una bomba de agua");
+                    break;
+                case 2:
+                    console.log("La bomba es una bomba de gasolina");
+                    break;
+                case 3:
+                    console.log("La bomba es una bomba de hormigón");
+                    break;
+                case 4:
+                    console.log("La bomba es una bomba de pasta alimenticia");
+                    break;
+                default:
+                    console.log("No existe un valor válido para tipo de bomba");
+            }
+        }
+
+        let tipo = prompt("Introduce el tipo de motor (0-4):");
+        tipoMotor(parseInt(tipo));
+    </script>
+
+    <script WP 8>
+        let nombres = [];
+        nombres[0] = prompt("Introduce el primer nombre:");
+        nombres[1] = prompt("Introduce el segundo nombre:");
+        nombres[2] = prompt("Introduce el tercer nombre:");
+
+        console.log("Nombres ingresados:", nombres);
+    </script>
+    
+    
+    <script WP 9>
+        let seleccionados = [];
+
+        function agregarFruta(fruta) {
+            seleccionados.push(fruta);
+            console.log("Frutas seleccionadas:", seleccionados);
+        }
+    </script>
+
+    <button onclick="agregarFruta('Manzana')">Manzana</button>
+    <button onclick="agregarFruta('Pera')">Pera</button>
+    <button onclick="agregarFruta('Fresa')">Fresa</button>
+    <button onclick="agregarFruta('Nectarina')">Nectarina</button>
+    <button onclick="agregarFruta('Kiwi')">Kiwi</button>
+    <button onclick="agregarFruta('Mango')">Mango</button>
+    <button onclick="agregarFruta('Frambuesa')">Frambuesa</button>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título</title>
+  </head>
+  <body>
+    <button onclick="abrir100()">Abre una ventana</button>
+    <button onclick="ampliarVentana()">Ampliar ventana</button>
+    <script>
+      var ventana = null;
+      function abrir100() {
+        ventana = window.open("", "", "width=100,height=100");
+      }
+      function ampliarVentana() {
+        if (ventana != null) {
+          ventana.resizeTo(500, 500);
+        } else {
+          alert("Abre primero la ventana");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function modificarColor(){
+            var parrafos = document.getElementsByTagName('p');
+            var fontColor = document.getElementById("sboSize").value;
+            for (var i = 0; i < parrafos.length; i++) {
+                parrafos[i].style.color= fontColor;
+            }
+        }
+    </script>
+    <div id="elementosTag">
+        <h3>Modificacion de color</h3>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro velit perspiciatis quae delectus labore placeat, blanditiis magnam quo nulla commodi nihil repudiandae, sint illum consequuntur eveniet incidunt animi a quibusdam.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem excepturi quae sunt, cupiditate necessitatibus vitae doloremque eos dolorum quasi quaerat voluptatibus commodi ipsam asperiores quisquam natus modi nostrum id fugiat?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem sed velit itaque ducimus repellendus expedita odit rem dolores beatae, inventore quo porro. Eveniet ducimus vero tempora iste, commodi sunt quis.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro velit perspiciatis quae delectus labore placeat, blanditiis magnam quo nulla commodi nihil repudiandae, sint illum consequuntur eveniet incidunt animi a quibusdam.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem excepturi quae sunt, cupiditate necessitatibus vitae doloremque eos dolorum quasi quaerat voluptatibus commodi ipsam asperiores quisquam natus modi nostrum id fugiat?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem sed velit itaque ducimus repellendus expedita odit rem dolores beatae, inventore quo porro. Eveniet ducimus vero tempora iste, commodi sunt quis.
+        </p>
+    </div>
+    <div>
+        <span>Seleccionar color: </span>
+        <select id="sboSize">
+            <option id="green" value="green">Verde</option>
+            <option id="blue" value="blue">Azul</option>
+            <option id="red" value="red">Rojo</option>
+        </select>
+        <button id="actualizar" onclick="modificarColor()">Cambiar</button>
+    </div>
+</body>
+</html>

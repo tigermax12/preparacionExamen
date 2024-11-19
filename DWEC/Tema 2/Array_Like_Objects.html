@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array-Like Objects en JavaScript</title>
+</head>
+<body>
+    <!-- 
+        Resumen:
+        1. Objetos Array-Like:
+           - Son objetos similares a arrays pero no tienen todos sus métodos.
+           - Ejemplos: NodeList, HTMLCollection.
+           - Métodos faltantes: push, forEach, etc.
+        2. NodeList:
+           - Contiene nodos del DOM y es "live" (se actualiza automáticamente si el DOM cambia).
+        3. Conversión de Array-Like a Arrays:
+           - Usar Array.prototype.slice.call(objetoArrayLike).
+           - Usar [...objetoArrayLike] (ES6).
+        4. Código de ejemplo:
+           - Contar elementos input y select en un formulario y manejarlos como arrays.
+    -->
+
+    <h1>Array-Like Objects y Ejercicios</h1>
+
+    <h2>1. Contar elementos input y select</h2>
+    <form>
+        <input type="text" placeholder="Input 1">
+        <input type="text" placeholder="Input 2">
+        <select>
+            <option>Option 1</option>
+        </select>
+        <select>
+            <option>Option 2</option>
+        </select>
+    </form>
+    <button onclick="ejemplo1()">Ejecutar Ejemplo 1</button>
+    <p id="resultado1"></p>
+
+    <h2>2. Usar una función para añadir NodeList a un array</h2>
+    <button onclick="ejemplo2()">Ejecutar Ejemplo 2</button>
+    <p id="resultado2"></p>
+
+    <script>
+        // Ejemplo 1: Usar Array.prototype.slice.call para convertir NodeList a array
+        function ejemplo1() {
+            const elementosInput = document.getElementsByTagName('input');
+            const elementosSelect = document.getElementsByTagName('select');
+            const arrayNodos = Array.prototype.slice.call(elementosInput);
+            arrayNodos.push(...Array.prototype.slice.call(elementosSelect));
+            document.getElementById('resultado1').innerText = 
+                `Total elementos input y select: ${arrayNodos.length}`;
+        }
+
+        // Ejemplo 2: Usar una función para procesar NodeList
+        function ejemplo2() {
+            const elementosInput = document.getElementsByTagName('input');
+            const elementosSelect = document.getElementsByTagName('select');
+            const arrayNodos = [];
+            addNodeListToArray(elementosInput, arrayNodos);
+            addNodeListToArray(elementosSelect, arrayNodos);
+            document.getElementById('resultado2').innerText = 
+                `Total elementos input y select añadidos: ${arrayNodos.length}`;
+        }
+
+        function addNodeListToArray(elNodeList, elArray) {
+            for (let i = 0; i < elNodeList.length; i++) {
+                elArray.push(elNodeList[i]);
+            }
+            alert(`Añadidos ${elNodeList.length} elementos al array.`);
+        }
+    </script>
+</body>
+</html>

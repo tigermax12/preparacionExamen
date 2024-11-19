@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .green {
+      color: green;
+    }
+
+    .red {
+      color: red;
+    }
+
+    .default {
+      color: black;
+    }
+    </style>
+</head>
+<body>
+    <h1>Gestión de Usuarios</h1>
+    <form id="user-form">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" required>
+        <label for="age">Edad:</label>
+        <input type="number" id="age" required>
+        <button type="submit">Añadir Usuario</button>
+    </form>
+    <h1>Lista de Usuarios</h1>
+    <ul id="user-list"></ul>
+
+    <script>
+        document.getElementById('user-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const age = parseInt(document.getElementById('age').value, 10);
+            const userList = document.getElementById('user-list');
+
+
+            if (!name || isNaN(age)) {
+                alert("Por favor, ingresa un nombre válido y una edad.");
+                return;
+            }
+            const li = document.createElement('li');
+            li.textContent = name;
+            const br = document.createElement('br');
+            li.appendChild(br);
+            li.appendChild(document.createTextNode(age + ' años'));
+
+            if (age >= 18 && age < 65) {
+                li.classList.add('green');
+            } else if (age >= 65) {
+                li.classList.add('red');
+            } else {
+                li.classList.add('default');
+            }
+
+            userList.appendChild(li);
+        });
+    </script>
+</body>
+</html>

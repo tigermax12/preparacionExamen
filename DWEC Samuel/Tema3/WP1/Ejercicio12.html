@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validarDinero(texto){
+            //patron= (/(\d)\$/g, "€"); No funciona
+            //texto.replace(/(?<=\d)\$/g, "€")
+            let resultado = texto.replace(/(?<=[0-9])[\$]/g, "€");
+            console.log(resultado);
+            return resultado;
+        }
+
+        let texto = "El coste del equipo es de 90.25$ iva incluido. Se aceptan $ y €.";
+        validarDinero(texto); 
+
+        let texto1 = "$";
+        validarDinero(texto1); 
+
+        let texto2 = "90$";
+        validarDinero(texto2); 
+    
+        let texto3 = "90,45$";
+        validarDinero(texto3); 
+    
+        let texto4 = "90€";
+        validarDinero(texto4);
+        
+        let texto5 = "0$";
+        validarDinero(texto5); 
+
+        let texto6 = "El precio del artículo sin IVA es 90.25€, y con IVA 115.65€. Se admite el pago en $ y €";
+        validarDinero(texto6); 
+    </script>
+</body>
+</html>

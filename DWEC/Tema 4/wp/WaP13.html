@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Gestión de Usuarios</title>
+</head>
+<body>
+    <div id="originalList"></div>
+    <div id="copyList"></div>
+    <input type="number" id="edadInput" placeholder="Edad a eliminar" />
+    <button id="eliminarBtn">Eliminar</button>
+
+    <script>
+        const usuarios = [
+            { nombre: "Juan", edad: 20 },
+            { nombre: "María", edad: 70 },
+            { nombre: "Pedro", edad: 15 }
+        ];
+
+        const originalList = document.getElementById("originalList");
+        const copyList = document.getElementById("copyList");
+
+        // Mostrar listas originales
+        const mostrarLista = (list, container) => {
+            container.innerHTML = ""; // Limpia el contenido
+            list.forEach(usuario => {
+                const userElement = document.createElement("p");
+                userElement.textContent = `${usuario.nombre} - ${usuario.edad} años`;
+                container.appendChild(userElement);
+            });
+        };
+
+        mostrarLista(usuarios, originalList);
+
+        // Crear una copia independiente
+        const copiaUsuarios = JSON.parse(JSON.stringify(usuarios));
+        mostrarLista(copiaUsuarios, copyList);
+
+        // Función para eliminar usuarios
+        const eliminarUsuario = () => {
+            const edadAEliminar = parseInt(document.getElementById("edadInput").value);
+
+            copiaUsuarios.forEach(usuario => {
+                if (usuario.edad === edadAEliminar) {
+                    const userElement = Array.from(copyList.children).find(child =>
+                        child.textContent.includes(`${usuario.nombre} - ${usuario.edad}`)
+                    );
+                    if (userElement) {
+                        userElement.style.textDecoration = "line-through";
+                    }
+                }
+            });
+        };
+
+        document.getElementById("eliminarBtn").addEventListener("click", eliminarUsuario);
+    </script>
+</body>
+</html>

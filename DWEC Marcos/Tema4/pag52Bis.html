@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título</title>
+  </head>
+  <body>
+    <script>
+      var total = 0;
+      function addNuevoItem() {
+        total++;
+        document.getElementById("listaItems").innerHTML +=
+          "<li>Elemento " + total + "</li>";
+      }
+      function copiarLista() {
+        var lista = document.getElementById('listaItems');
+        lista.insertAdjacentHTML("afterEnd", lista.outerHTML);
+
+      }
+    </script>
+    <button id="btnParar" onclick="addNuevoItem();">
+      Agregar nuevo elemento
+    </button>
+    <button id="btnSalir" onclick="copiarLista();">
+      Copiar lista al final
+    </button>
+    <ul id="listaItems"></ul>
+  </body>
+</html>

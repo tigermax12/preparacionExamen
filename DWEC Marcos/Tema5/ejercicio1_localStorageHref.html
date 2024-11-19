@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título</title>
+</head>
+
+<body>
+    <h1>El contador va por : <h1></h1></h1>
+    <a href="ejercicio1_localStorage.html">Volver al contador</a>
+    <script>
+
+        window.setInterval(() => {
+            contador = localStorage.getItem('contador') || 0;
+            document.getElementsByTagName("h1")[1].textContent = contador;
+        },10);
+
+
+    </script>
+</body>
+
+</html>

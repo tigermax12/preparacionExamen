@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1: Generador de Historias</title>
+</head>
+<body>
+    <h2>Ejercicio 1: Generador de Historias</h2>
+    <ul>
+        <li>Nombre: <input type="text" id="nombre"></li>
+        <li>Adjetivo: <input type="text" id="adjetivo"></li>
+        <li>Nombre de otro personaje: <input type="text" id="persona"></li>
+    </ul>
+    <button id="lib">Generar historia nueva</button>
+    <div id="historia"></div>
+
+    <script>
+        document.getElementById('lib').addEventListener('click', () => {
+            const nombre = document.getElementById('nombre').value;
+            const adjetivo = document.getElementById('adjetivo').value;
+            const persona = document.getElementById('persona').value;
+            const historia = `${nombre} robó su coche al ${adjetivo} de ${persona}.`;
+            document.getElementById('historia').textContent = historia;
+        });
+    </script>
+</body>
+</html>

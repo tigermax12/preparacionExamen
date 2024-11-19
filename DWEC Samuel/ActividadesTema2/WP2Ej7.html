@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function dimeTipoMotor() {
+  let tipoMotor = parseInt(prompt("Introduce el tipo de motor (1, 2, 3, 4): "));
+
+  switch (tipoMotor) {
+    case 0:
+      alert("No hay establecido un valor definido para el tipo de bomba");
+      break;
+    case 1:
+      alert("La bomba es una bomba de agua");
+      break;
+    case 2:
+      alert("La bomba es una bomba de gasolina");
+      break;
+    case 3:
+      alert("La bomba es una bomba de hormigón");
+      break;
+    case 4:
+      alert("La bomba es una bomba de pasta alimenticia");
+      break;
+    default:
+      alert("No existe un valor válido para tipo de bomba");
+      break;
+  }
+}
+dimeTipoMotor();
+    </script>
+</body>
+</html>

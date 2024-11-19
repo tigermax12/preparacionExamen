@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular días desde cumpleaños</title>
+</head>
+<body>
+    
+    <h1>Calculadora de días desde cumpleaños</h1>
+    <input type="date" id="cumpleaños" />
+    <button onclick="calculateDays()">Calcular días</button>
+    
+    <p id="diferencia2"></p>
+    <p id="diferencia"></p>
+    <p id="diferencia5"></p>
+    <p id="diferencia3"></p>
+    <p id="diferencia4"></p>
+
+    <script>
+        function calculateDays() {
+    
+            var inputDate = document.getElementById("cumpleaños").value;
+            
+            var birthDate = new Date(inputDate);
+            var today = new Date(); 
+
+    
+            var birthTime = birthDate.getTime();
+            var todayTime = today.getTime();
+
+           
+            var diffInMilliseconds = todayTime - birthTime;
+
+            var diffInHours = Math.floor(diffInMilliseconds / (1000 * 60 * 60));
+            var diffInSeconds = Math.floor(diffInMilliseconds / (1000));
+            var diffInMinutes = Math.floor(diffInMilliseconds / (1000 * 60));
+            var diffInDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
+            var diffInMonths = parseInt(diffInDays/30.44);
+
+
+            document.getElementById("diferencia4").innerHTML = "Han pasado " + diffInSeconds + " segundos desde tu cumpleaños.";
+            document.getElementById("diferencia3").innerHTML = "Han pasado " + diffInMinutes + " minutos desde tu cumpleaños.";
+            document.getElementById("diferencia5").innerHTML = "Han pasado " + diffInHours + " horas desde tu cumpleaños.";
+            document.getElementById("diferencia").innerHTML = "Han pasado " + diffInDays + " días desde tu cumpleaños.";
+            document.getElementById("diferencia2").innerHTML = "Han pasado " + diffInMonths + " meses desde tu cumpleaños.";
+        }
+    </script>
+</body>
+</html>

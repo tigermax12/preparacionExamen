@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function imprimirDatos(){
+            document.write("<br>Codigo: "+ this.codigo);
+            document.write("<br>Nombre: "+ this.nombre);
+            document.write("<br>Precio: "+ this.precio);
+        }
+        function ProductoAlimenticio(codigo, nombre, precio){
+            this.codigo= codigo;
+            this.nombre= nombre;
+            this.precio= precio;
+            this.imprimirDatos= imprimirDatos;
+        }
+        var producto1= new ProductoAlimenticio(1, "platano", 3);
+        var producto2= new ProductoAlimenticio(2, "leche", 2);
+        var producto3= new ProductoAlimenticio(3, "galletas", 5);
+        var productos= [producto1, producto2, producto3]
+        for (let producto of productos) {
+            producto.imprimirDatos();
+        }
+
+    </script>
+</body>
+</html>

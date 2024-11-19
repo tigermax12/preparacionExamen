@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="cabecera">Texto1</p>
+    <p id="p1">Texto2</p>
+    <p id="p2">Texto3</p>
+    <p id="p3">Texto4</p>
+    <input type="button" onclick="verBucle()" value="Pulsar"/>
+    <script>
+        //Trabajo directo con array-like, es el nodelist devuelto en eiquetas
+        etiquetas= document.getElementsByTagName('p');
+        function verBucle(){
+            var contador=0;
+            console.log(etiquetas);
+            while(contador < etiquetas.length){
+                alert(etiquetas[contador].innerHTML)
+                contador++;
+            }
+        }
+        function miFuncion(par, indece, arr){
+            document.write("<br>+ Párrafo " + (indice + 1) +": "+par.textContent +"</br>");
+        }
+        var arraEtiquetas= Array.from(etiquetas);
+        arraEtiquetas.forEach(miFuncion);
+    </script>
+</body>
+</html>

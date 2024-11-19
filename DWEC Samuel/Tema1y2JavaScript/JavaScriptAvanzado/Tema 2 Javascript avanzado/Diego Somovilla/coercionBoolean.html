@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        //Coerción explícita
+      Boolean(""); // false
+      Boolean(0); // false
+      Boolean(-0); // false
+      Boolean(NaN); // false
+      Boolean(null); // false
+      Boolean(undefined); // false
+      Boolean(false); // false
+
+      // coercion implicita
+      if (2) {} // se evalua true
+      !!2;      // true
+      2 || "falso"; // se evalua true, devuelve 2
+    </script>
+  </head>
+  <body></body>
+</html>

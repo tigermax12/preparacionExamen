@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Título</title>
+    </head>
+    <div>
+        <p>This example uses the AddEvenListener() to show bubbling and
+            capturing</p>
+        <div id="bubbleDiv" style="height: 100px; background-color: lightblue; text-align: center;
+        padding: 1%; margin: 10px;"><p id="bubbleP">Click this paragraph i'm
+                bubbling</p>
+        </div>
+        <div id="captureDiv" style="height: 100px; background-color: lightblue; text-align: center;padding: 1%; margin: 10px;">
+            <p id="captureP">Click this paragraph i'm
+                capturing</p>
+        </div> <script>
+        //Parámetro falso, bubbling(De dentro hacia afuera), parámetro true, capturing(De fuera hacia dentro)
+    document.getElementById('bubbleDiv').addEventListener('click', function(){
+        alert('Bubble Div ' +this.id);
+    }, false);
+    document.getElementById('bubbleP').addEventListener('click', function(){
+        alert('Bubble P '+this.id);
+    }, false);
+    document.getElementById('captureDiv').addEventListener('click', function(){
+        alert('Capture Div '+this.id);
+    }, true);
+    document.getElementById('captureP').addEventListener('click', function(){
+        alert('Capture P '+this.id);
+    }, true);
+    </script>
+    </body>
+
+</html>

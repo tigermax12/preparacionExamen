@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2: Operaciones Matemáticas</title>
+</head>
+<body>
+    <h2>Ejercicio 2: Operaciones Matemáticas</h2>
+    <label>Calcular el cuadrado de este número:
+        <input type="number" id="cuadrado" size="2">
+    </label>
+    <button id="cuadrado-boton">Calcular</button><br><br>
+
+    <label>Calcular la mitad de este número:
+        <input type="number" id="mitad" size="2">
+    </label>
+    <button id="mitad-boton">Calcular</button><br><br>
+
+    <label>Calcular el área del círculo con radio:
+        <input type="number" id="area" size="2">
+    </label>
+    <button id="area-boton">Calcular</button>
+    <div id="solucion"></div>
+
+    <script>
+        document.getElementById('cuadrado-boton').addEventListener('click', () => {
+            const num = Number(document.getElementById('cuadrado').value);
+            document.getElementById('solucion').textContent = `El cuadrado es ${num * num}`;
+        });
+
+        document.getElementById('mitad-boton').addEventListener('click', () => {
+            const num = Number(document.getElementById('mitad').value);
+            document.getElementById('solucion').textContent = `La mitad es ${num / 2}`;
+        });
+
+        document.getElementById('area-boton').addEventListener('click', () => {
+            const radio = Number(document.getElementById('area').value);
+            document.getElementById('solucion').textContent = `El área del círculo es ${Math.PI * radio * radio}`;
+        });
+    </script>
+</body>
+</html>

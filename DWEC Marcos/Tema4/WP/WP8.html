@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Título</title>
+    </head>
+    <body>
+        <div id="elementosTag">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <div>
+            <input type="text" name="" id="txtColor">
+            <button id="actualizar" onclick="recorrerTag();">Modificar</button>
+        </div>
+    </div>
+    <script>
+        function recorrerTag(){
+            var tags = document.getElementsByTagName('p');
+            for(let i = 0 ; i < tags.length;i++){
+                tags[i].textContent = 'Párrafo ' + i;
+                document.getElementById('txtColor') != '' ? tags[i].style.color
+                = document.getElementById('txtColor').value : console.log('lol');
+            }
+        }
+    </script>
+    </body>
+</html>

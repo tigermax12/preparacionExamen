@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Lista de Usuarios</title>
+</head>
+<body>
+    <div id="userList"></div>
+    <script>
+        const usuarios = [
+            { nombre: "Juan", edad: 20 },
+            { nombre: "María", edad: 70 },
+            { nombre: "Pedro", edad: 15 }
+        ];
+
+        const userList = document.getElementById("userList");
+
+        usuarios.forEach(usuario => {
+            const userElement = document.createElement("p");
+            userElement.textContent = `${usuario.nombre} - ${usuario.edad} años`;
+            
+            if (usuario.edad >= 18 && usuario.edad < 65) {
+                userElement.style.color = "green";
+            } else if (usuario.edad >= 65) {
+                userElement.style.color = "red";
+            }
+
+            userList.appendChild(userElement);
+        });
+    </script>
+</body>
+</html>

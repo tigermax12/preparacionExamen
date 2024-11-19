@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frutas como botones</title>
+  <style>
+    .boton {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="boton" onclick="seleccionarFruta('Manzana')">Manzana</div>
+  <div class="boton" onclick="seleccionarFruta('Pera')">Pera</div>
+  <div class="boton" onclick="seleccionarFruta('Fresa')">Fresa</div>
+  <div class="boton" onclick="seleccionarFruta('Nectarina')">Nectarina</div>
+  <div class="boton" onclick="seleccionarFruta('Kiwi')">Kiwi</div>
+  <div class="boton" onclick="seleccionarFruta('Mango')">Mango</div>
+  <div class="boton" onclick="seleccionarFruta('Frambuesa')">Frambuesa</div>
+
+  <script>
+    let frutasSeleccionadas = [];
+
+    function seleccionarFruta(fruta) {
+
+      let confirmacion = prompt(`Has seleccionado: ${fruta}. Confirma escribiendo su nombre:`);
+
+      if (confirmacion === fruta) {
+
+        frutasSeleccionadas.push(fruta);
+
+        let deletreado = fruta.split("").join(" ");
+        let alReves = fruta.split("").reverse().join(" ");
+
+        alert(fruta);
+        alert(deletreado);
+        alert(alReves);
+      } else {
+        alert("El nombre introducido no coincide. Inténtalo de nuevo.");
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var ventanaSecundaria;
+            function abrirVentana(){
+                ventanaSecundaria= window.open("http://www.jesuitasrioja.org", "Nueva Ventana", "width=300,height=200");
+        }
+        function desplazarVentana(){
+            const nuevaX = Math.floor(Math.random() * (window.screen.width - 300));
+                const nuevaY = Math.floor(Math.random() * (window.screen.height - 200));
+                
+                ventanaSecundaria.moveTo(nuevaX, nuevaY);
+
+                document.write(`Nueva posición de la ventana: X=${nuevaX}, Y=${nuevaY}`);
+        }
+    </script>
+        <input type="button" value="abrirVentana" onclick="abrirVentana()">
+        <input type="button" value="Mover Ventana" onclick="desplazarVentana()">
+</body>
+</html>

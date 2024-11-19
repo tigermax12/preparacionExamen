@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Título</title>
+</head>
+
+<body>
+  <script>
+    /*12.Crear una expresión regular que permita reemplazar el símbolo dólar ($), por
+          el símbolo euro, €, en las cantidades que indiquen un valor monetario. Por
+          ejemplo: “El coste del equipo es de 90.25$ iva incluido. Se aceptan $ y €.”
+          “El coste del equipo es de 90.25€ iva incluido. Se aceptan $ y €.”.
+          */
+
+    frase =
+      "El coste del equipo es de 90.25$ iva incluido. Se aceptan $ y €.";
+    frase = cambiarFrase(frase);
+    console.log(cambiarFrase(frase));
+    frase =
+      "El coste del equipo es de 90.25$ el IVA es 25$.Se aceptan $ y €.";
+    frase = cambiarFrase(frase);
+    console.log(frase);
+
+    function cambiarFrase(frase) {
+      const patron = /(?<=\d)\$/;//Grupo de captura que busca un dígito seguido de un símbolo de dólar
+      // Ejemplo y descripción de grupos de captura en regex:
+      // 
+      // 1. Grupo de captura estándar: (expresión)
+      //    Captura la coincidencia dentro del paréntesis y permite recuperarla.
+      //    Ejemplo: 
+      //    const regex = /(hola)/;
+      //    const match = "hola mundo".match(regex);
+      //    // match[1] === "hola" (la palabra "hola" fue capturada)
+      //
+      // 3. Grupo de no captura: (?:expresión)
+      //    Agrupa sin capturar la coincidencia (no aparece en los resultados).
+      //    Útil para aplicar lógica sin guardar el resultado.
+      //    Ejemplo: 
+      //    const regex = /(?:hola|adiós) mundo/;
+      //    const match = "hola mundo".match(regex);
+      //    // match[0] === "hola mundo", pero no hay match[1] porque no se captura.
+      //
+      // 4. Grupo condicional (solo en ciertas implementaciones avanzadas): 
+      //    (? expresión )
+      //    Ejecuta diferentes patrones dependiendo de una condición.
+      //    Ejemplo:
+      //    const regex = /(?:(hola) mundo|(adiós) mundo)/;
+      //    const match = "hola mundo".match(regex);
+      //    // match[1] === "hola", match[2] === undefined (porque solo capturó "hola")
+      
+      regex = new RegExp(patron);
+      while (true) {
+        let pos = frase.search(patron);
+        frase = frase.replace(frase[pos], "€");
+        if (pos === -1) {
+          break;
+        }
+      }
+      return frase;
+    }
+  </script>
+</body>
+
+</html>

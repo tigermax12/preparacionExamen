@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const mapEjemplo = new Map([['a', 1], ['b', 4]]);
+        //mapEjemplo almacena {a: 1, b: 4}
+            
+            document.write(mapEjemplo.has('a')) // -> true
+            document.write(mapEjemplo.has('c')) // -> false
+
+            document.write(mapEjemplo.set('c', 5)) // -> {a: 1, b: 4, c: 5} 
+            document.write(mapEjemplo.get('c')) // -> 5
+
+            document.write(mapEjemplo.delete('a')) // -> {b: 4, c: 5}
+        const newObj = {}
+        document.write(mapEjemplo.set(newObj, 5)) // -> {b: 4, c: 5, ref: 5}
+        document.write(mapEjemplo.delete({})) // -> {b: 4, c: 5, ref: 5}
+        document.write(mapEjemplo.delete(newObj)) // -> {b: 4, c: 5}
+    </script>
+</body>
+</html>

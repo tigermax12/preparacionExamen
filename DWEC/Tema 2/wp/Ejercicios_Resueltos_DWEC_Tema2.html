@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Resueltos DWEC Tema 2</title>
+</head>
+<body>
+    <h1>Ejercicios Resueltos y Explicaciones</h1>
+
+    <!-- Ejercicio 1 -->
+    <h2>1. Convertir JavaScript inline a métodos</h2>
+    <p>Extraer código inline a un método y luego usar un archivo externo.</p>
+    <h3>Versión Inline</h3>
+    <p>Código inline para mostrar un mensaje de saludo:</p>
+    <pre>&lt;button onclick="saludar()">Haz clic aquí&lt;/button></pre>
+    <script>
+        function saludar() {
+            alert('¡Hola desde la versión inline!');
+        }
+    </script>
+
+    <h3>Versión en archivo externo</h3>
+    <p>El archivo externo puede contener:</p>
+    <pre>// Archivo externo (saludo.js)
+function saludar() {
+    alert('¡Hola desde un archivo externo!');
+}
+</pre>
+
+    <!-- Ejercicio 2 -->
+    <h2>2. Mostrar propiedades de un objeto button</h2>
+    <p>El método <code>verBucle()</code> muestra las propiedades de un botón.</p>
+    <button id="miBoton" onclick="verBucle()">Ver propiedades del botón</button>
+    <pre id="propiedadesBoton"></pre>
+    <script>
+        function verBucle() {
+            const boton = document.getElementById('miBoton');
+            let resultado = '';
+            for (let propiedad in boton) {
+                resultado += propiedad + ': ' + boton[propiedad] + '\n';
+            }
+            document.getElementById('propiedadesBoton').innerText = resultado;
+        }
+    </script>
+
+    <!-- Ejercicio 3 -->
+    <h2>3. Propiedades del objeto document</h2>
+    <p>Similar al ejercicio anterior, pero para el objeto document:</p>
+    <button onclick="verDocument()">Ver propiedades del document</button>
+    <pre id="propiedadesDocument"></pre>
+    <script>
+        function verDocument() {
+            let resultado = '';
+            for (let propiedad in document) {
+                resultado += propiedad + ': ' + document[propiedad] + '\n';
+            }
+            document.getElementById('propiedadesDocument').innerText = resultado;
+        }
+    </script>
+
+    <!-- Ejercicio 4 -->
+    <h2>4. Recorrer una cadena con for-in</h2>
+    <p>El bucle for-in itera sobre índices:</p>
+    <button onclick="recorrerTexto()">Recorrer "ejemplo"</button>
+    <pre id="resultadoTexto"></pre>
+    <script>
+        function recorrerTexto() {
+            const texto = 'ejemplo';
+            let resultado = '';
+            for (let indice in texto) {
+                resultado += `Índice: ${indice}, Caracter: ${texto[indice]}\n`;
+            }
+            document.getElementById('resultadoTexto').innerText = resultado;
+        }
+    </script>
+
+    <!-- Ejercicio 5 -->
+    <h2>5. Recorrer array de meses con forEach</h2>
+    <p>Mostrar posición y valor de cada mes:</p>
+    <button onclick="recorrerMeses()">Recorrer Meses</button>
+    <pre id="resultadoMeses"></pre>
+    <script>
+        function recorrerMeses() {
+            const meses = ['Septiembre', 'Octubre', 'Noviembre', 'Diciembre', 'Enero', 'Febrero'];
+            let resultado = '';
+            meses.forEach((mes, index) => {
+                resultado += `Posición: ${index}, Mes: ${mes}\n`;
+            });
+            document.getElementById('resultadoMeses').innerText = resultado;
+        }
+    </script>
+
+    <!-- Ejercicio 6 -->
+    <h2>6. Mostrar múltiplos de 6 entre 1 y 1000</h2>
+    <p>Múltiplos de 6:</p>
+    <button onclick="mostrarMultiplos()">Ver múltiplos</button>
+    <pre id="resultadoMultiplos"></pre>
+    <script>
+        function mostrarMultiplos() {
+            let resultado = '';
+            for (let i = 1; i <= 1000; i++) {
+                if (i % 6 === 0) {
+                    resultado += i + ', ';
+                }
+            }
+            document.getElementById('resultadoMultiplos').innerText = resultado;
+        }
+    </script>
+
+    <!-- Ejercicio 7 -->
+    <h2>7. Selección de tipo de motor con switch</h2>
+    <button onclick="dimeTipoMotor()">Seleccionar tipo de motor</button>
+    <script>
+        function dimeTipoMotor() {
+            const tipo = prompt('Introduce el tipo de motor (0 a 4):');
+            let mensaje;
+            switch (parseInt(tipo)) {
+                case 0: mensaje = 'No hay valor definido para el tipo de bomba'; break;
+                case 1: mensaje = 'La bomba es una bomba de agua'; break;
+                case 2: mensaje = 'La bomba es una bomba de gasolina'; break;
+                case 3: mensaje = 'La bomba es una bomba de hormigón'; break;
+                case 4: mensaje = 'La bomba es una bomba de pasta alimenticia'; break;
+                default: mensaje = 'No existe un valor válido para tipo de bomba';
+            }
+            alert(mensaje);
+        }
+    </script>
+
+    <!-- Ejercicio 8 -->
+    <h2>8. Array de nombres</h2>
+    <p>Pedir nombres al usuario y mostrarlos:</p>
+    <button onclick="pedirNombres()">Pedir nombres</button>
+    <pre id="resultadoNombres"></pre>
+    <script>
+        function pedirNombres() {
+            const nombres = [];
+            for (let i = 0; i < 3; i++) {
+                nombres.push(prompt(`Introduce el nombre ${i + 1}:`));
+            }
+            document.getElementById('resultadoNombres').innerText = nombres.join(', ');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var dias= [
+            "Lunes", 
+            "Martes",
+            "Miercoles",
+            "Jueves",
+            "Viernes",
+        ];
+        dias.length= dias.length+2;
+        dias[dias.length-2]= "Sabado";
+        dias[dias.length-1]= "Domingo";
+        
+        for(var i=0; i< dias.length; i++){
+            console.log("Hoy es "+ dias[i])
+        }
+        
+    </script>
+</body>
+</html>

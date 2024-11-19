@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="myFunction()">
+    <script>
+        function myFunction(){
+        var a= isFinite(123) + "<br>";
+        var b= isFinite(-1.23) + "<br>";
+        var c= isFinite(5 -2) + "<br>";
+        var d= isFinite(0) + "<br>";
+        var e= isFinite("123") + "<br>";
+        var f= isFinite("Hello") + "<br>";
+        var g= isFinite("2005/12/12") + "<br>";
+        var h= isFinite(2005/12/12) + "<br>";
+        var i= isFinite(Infinity) + "<br>";
+        var jj= Number.MAX_VALUE + "<br>";
+        var j= isFinite(jj);
+        
+        document.getElementById("demo").innerHTML= "123 " + a;
+        document.getElementById("demo").innerHTML+= "-1.23 " + b;
+        document.getElementById("demo").innerHTML+= "5 -2 " +c;
+        document.getElementById("demo").innerHTML+= "0 " + d;
+        document.getElementById("demo").innerHTML+= "\"123\" " + e;
+        document.getElementById("demo").innerHTML+= "\"hello\" " + f;
+        document.getElementById("demo").innerHTML+= "\"2005/12/12\" " + g;
+        document.getElementById("demo").innerHTML+= "2005/12/12" + h;
+        document.getElementById("demo").innerHTML+= "Infinity " + i;
+        document.getElementById("demo").innerHTML+=  "MAX_VALUE" + jj;
+        document.getElementById("demo").innerHTML+=  "MAX_VALUE es finito? " + j;
+    }
+
+    </script>
+    
+    <p id="demo"></p>
+</body>
+</html>

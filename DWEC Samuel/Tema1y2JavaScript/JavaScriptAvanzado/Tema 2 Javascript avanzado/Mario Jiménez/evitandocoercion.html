@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+'180' + 200 + 3 // '1802003'
+'hola' + 'mundo' // 'holaNaN'
+!+[1] + ![1] + !![] // 'truefalse'
+
+if ('true' == true) { ... } // Se evalúa false, no entra
+if ('true') { ... } // Se evalúa true, entra
+if (!!"false" == !!"true") { ... } // Se evalúa true, entra
+if (0) { ... } // Se evalúa false, no entra
+if (38) { ... } // Se evalúa true, entra
+
+    </script>
+    
+</body>
+</html>

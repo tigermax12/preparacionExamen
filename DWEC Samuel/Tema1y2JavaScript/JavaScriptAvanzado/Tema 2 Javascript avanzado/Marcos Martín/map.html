@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// Crear un Map 
+const mapEjemplo = new Map([['a', 1], ['bs', 4]]);
+
+// Verificar si el valor a está en el Map
+console.log(mapEjemplo.has('a')); // true
+
+// Verificar si el valor c está en el Map
+console.log(mapEjemplo.has('c')); // false
+
+// Añadir el valor c con un valor de 5
+mapEjemplo.set('c', 5);
+
+// Obtener el valor c
+console.log(mapEjemplo.get('c')); 
+
+// Eliminar la clave 'a'
+mapEjemplo.delete('a');
+
+// Crear un objeto vacío
+const newobj = {};
+
+// Añadir clave en el Map, valor 5
+mapEjemplo.set(newobj, 5);
+
+mapEjemplo.delete({});
+
+// Eliminar la clave
+mapEjemplo.delete(newobj);
+
+console.log(mapEjemplo);
+</script>
+</body>
+</html>

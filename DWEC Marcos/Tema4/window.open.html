@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título</title>
+  </head>
+  <body>
+    <h1>Ejemplo de ventana.</h1>
+    <br />
+    <button onclick="abrirVentana();">Púlsame</button>
+    <script>
+      function abrirVentana() {
+        myWindow = window.open("", "Nueva ventana", "width=300,height=400");
+        myWindow.document.write("<html>");
+        myWindow.document.write("<head>");
+        myWindow.document.write("<title> Ventana Test</title>");
+        myWindow.document.write("</head>");
+        myWindow.document.write(
+          "<body>Se usan las propiedades: <li><b>Height = 200</b></li> <li>width=300</li></body></html>"
+        );
+      }
+
+
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Título</title>
+    </head>
+    <style>
+    button {
+            border: 1px solid green;
+            color: white;
+            background-color: darkred;
+            border-radius: 1em;
+            width: 5em;
+            height: 5em;
+        }
+        
+        button:hover {
+            background-color: rgb(255, 0, 0);
+            color: black;
+        }
+
+    </style>
+    <button onclick="mostrarFruta('Manzana')" value="Manzana">Manzana</button>
+    <button onclick="mostrarFruta('Pera')" value="Pera">Pera</button>
+    <button onclick="mostrarFruta('Fresa')" value="Fresa">Fresa</button>
+    <button onclick="mostrarFruta('Nectarina')" value="Nectarina">Nectarina</button>
+    <button onclick="mostrarFruta('Kiwi')" value="Kiwi">Kiwi</button>
+    
+    <script>
+        function mostrarFruta(fruta){
+            for(i = 0 ; i <fruta.length;i++){
+                document.write(fruta[i]+',');
+                document.write(fruta[fruta.length-1-i]+',');
+            }
+        }
+    </script>
+    <body>
+
+    </body>
+</html>

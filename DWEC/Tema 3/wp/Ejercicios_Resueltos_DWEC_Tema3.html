@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Resueltos DWEC Tema 3</title>
+</head>
+<body>
+    <h1>Ejercicios Resueltos y Explicaciones</h1>
+
+    <!-- Ejercicio 1 -->
+    <h2>1. Modificar horas y minutos de un objeto Date</h2>
+    <p>Crear un objeto <code>Date</code> y asignar valores fuera de rango:</p>
+    <button onclick="ejercicio1()">Ejecutar Ejemplo</button>
+    <pre id="resultado1"></pre>
+    <script>
+        function ejercicio1() {
+            const fecha = new Date();
+            fecha.setHours(26); // Incrementa un día
+            fecha.setMinutes(65); // Incrementa una hora
+            document.getElementById('resultado1').innerText = 
+                `Fecha actualizada: ${fecha.toString()}`;
+        }
+    </script>
+
+    <!-- Ejercicio 2 -->
+    <h2>2. Modificar día del mes en un objeto Date</h2>
+    <p>Asignar un día fuera de rango en una fecha específica:</p>
+    <button onclick="ejercicio2()">Ejecutar Ejemplo</button>
+    <pre id="resultado2"></pre>
+    <script>
+        function ejercicio2() {
+            const fecha = new Date(2013, 1, 20); // 20 de febrero de 2013
+            fecha.setDate(35); // Pasa al siguiente mes
+            document.getElementById('resultado2').innerText = 
+                `Nueva fecha: ${fecha.toString()}`;
+        }
+    </script>
+
+    <!-- Ejercicio 3 -->
+    <h2>3. Crear un array único y ordenado</h2>
+    <p>Eliminar duplicados de un array y ordenarlo:</p>
+    <button onclick="ejercicio3()">Ejecutar Ejemplo</button>
+    <pre id="resultado3"></pre>
+    <script>
+        function ejercicio3() {
+            const arrayOriginal = [4, 0, 3, 4, 7, 3, 5, 8, 1, 8, 8, 0, 2, 3, 1, 2, 5, 7, 3, 2, 5, 1];
+            const arrayUnicoOrdenado = [...new Set(arrayOriginal)].sort((a, b) => a - b);
+            document.getElementById('resultado3').innerText = 
+                `Array único y ordenado: ${arrayUnicoOrdenado.join(', ')}`;
+        }
+    </script>
+
+    <!-- Ejercicio 4 -->
+    <h2>4. Identificar posiciones de un valor en un array</h2>
+    <p>Usar <code>filter</code> para encontrar posiciones de un valor:</p>
+    <button onclick="ejercicio4()">Ejecutar Ejemplo</button>
+    <pre id="resultado4"></pre>
+    <script>
+        function ejercicio4() {
+            const arrayOriginal = [4, 0, 3, 4, 7, 3, 5, 8, 1, 8, 8, 0, 2, 3, 1, 2, 5, 7, 3, 2, 5, 1];
+            const posiciones = arrayOriginal
+                .map((valor, indice) => (valor === 3 ? indice : -1))
+                .filter(indice => indice !== -1);
+            document.getElementById('resultado4').innerText = 
+                `Posiciones del valor 3: ${posiciones.join(', ')}`;
+        }
+    </script>
+
+    <!-- Ejercicio 5 -->
+    <h2>5. Ordenar array colocando pares primero</h2>
+    <p>Reordenar elementos según sean pares o impares:</p>
+    <button onclick="ejercicio5()">Ejecutar Ejemplo</button>
+    <pre id="resultado5"></pre>
+    <script>
+        function ejercicio5() {
+            const arrayOriginal = [4, 0, 3, 4, 7, 3, 5, 8, 1, 8, 8, 0, 2, 3, 1, 2, 5, 7, 3, 2, 5, 1];
+            const ordenado = [...arrayOriginal.filter(x => x % 2 === 0), ...arrayOriginal.filter(x => x % 2 !== 0)];
+            document.getElementById('resultado5').innerText = 
+                `Array reordenado: ${ordenado.join(', ')}`;
+        }
+    </script>
+
+    <!-- Ejercicio 6 -->
+    <h2>6. Contar palabras en una frase</h2>
+    <p>Contar palabras usando <code>split</code>:</p>
+    <button onclick="ejercicio6()">Ejecutar Ejemplo</button>
+    <pre id="resultado6"></pre>
+    <script>
+        function ejercicio6() {
+            const frase = "por cien cañones por banda poema Espronceda";
+            const totalPalabras = frase.split(' ').length;
+            document.getElementById('resultado6').innerText = 
+                `Número de palabras: ${totalPalabras}`;
+        }
+    </script>
+
+    <!-- Ejercicio 7 -->
+    <h2>7. Generar números de la bonoloto</h2>
+    <p>Generar seis valores únicos y un complementario:</p>
+    <button onclick="ejercicio7()">Ejecutar Ejemplo</button>
+    <pre id="resultado7"></pre>
+    <script>
+        function ejercicio7() {
+            const numeros = [];
+            while (numeros.length < 6) {
+                const num = Math.floor(Math.random() * 50) + 1;
+                if (!numeros.includes(num)) numeros.push(num);
+            }
+            const complementario = Math.floor(Math.random() * 9) + 1;
+            document.getElementById('resultado7').innerText = 
+                `Números: ${numeros.join(', ')}, Complementario: ${complementario}`;
+        }
+    </script>
+
+    <!-- Ejercicio 8 -->
+    <h2>8. Identificar el número más alto en un array</h2>
+    <p>Encontrar el máximo valor:</p>
+    <button onclick="ejercicio8()">Ejecutar Ejemplo</button>
+    <pre id="resultado8"></pre>
+    <script>
+        function ejercicio8() {
+            const valores = [252, 56, 33, 876, 32, 985, 729, 36, 184];
+            const maximo = Math.max(...valores);
+            document.getElementById('resultado8').innerText = 
+                `Número más alto: ${maximo}`;
+        }
+    </script>
+
+    <!-- Ejercicio 9 -->
+    <h2>9. Ordenar meses del año</h2>
+    <p>Ordenar y mostrar meses:</p>
+    <button onclick="ejercicio9()">Ejecutar Ejemplo</button>
+    <pre id="resultado9"></pre>
+    <script>
+        function ejercicio9() {
+            const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+            document.getElementById('resultado9').innerText = 
+                `Meses ordenados: ${meses.sort().join(', ')}`;
+        }
+    </script>
+
+    <!-- Ejercicios adicionales se pueden continuar en este formato -->
+</body>
+</html>

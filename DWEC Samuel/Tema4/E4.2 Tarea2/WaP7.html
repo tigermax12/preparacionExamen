@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function mostrar(button) {
+            var contenido = document.getElementById("contenido");
+            if (contenido.style.display === "none") {
+                contenido.style.display = "block";
+                button.textContent = "Ocultar";
+            } else {
+                contenido.style.display = "none";
+                button.textContent = "Mostrar";
+            }
+        }
+    </script>
+    <div id="elementosTag">
+        <h3>Modificando propiedad css</h3>
+    
+        <div id="contenido">
+            <span>Caja de texto</span>
+            <input type="text" name="" id="txtColor">
+        </div>
+        <button id="actualizar" onclick="mostrar(this)">Ocultar</button>
+    </div>
+</div>
+</div>
+</body>
+</html>

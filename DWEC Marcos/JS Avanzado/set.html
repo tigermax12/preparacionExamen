@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Título</title>
+    <script>
+        const setEjemplo = new Set([2,3,3,2]);
+        document.write(setEjemplo.has(2)+"</br>");
+        document.write(setEjemplo.has(1)+"</br>");
+        setEjemplo.add(2);
+        setEjemplo.add(1);
+        document.write(setEjemplo+"</br>");
+
+        const newObj = {};
+        const otherObj = {};
+
+
+        setEjemplo.add(newObj);
+        setEjemplo.add(newObj);
+        setEjemplo.add(otherObj);
+        document.write(setEjemplo+"</br>"); //2,3,{},{}
+    </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+const setEjemplo = new Set([2, 3, 3, 21]);
+
+console.log(setEjemplo.has(2));
+
+console.log(setEjemplo.has(1)); 
+
+setEjemplo.add(2);
+
+setEjemplo.add(1);
+
+setEjemplo.delete(2);
+
+const newobj = {};
+const otherObj = {};
+
+setEjemplo.add(newobj);
+setEjemplo.add(otherObj);
+
+console.log(setEjemplo.has(newobj));  
+console.log(setEjemplo.has(otherObj)); 
+
+console.log(setEjemplo);
+</script>
+
+</body>
+</html>

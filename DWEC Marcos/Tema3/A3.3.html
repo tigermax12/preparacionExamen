@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título</title>
+  </head>
+  <body>
+    <script>
+      /*A.3.3. Crear un script que defina un objeto llamado
+ProductoAlimenticio. Este objeto debe presentar las propiedades
+código, nombre y precio, además del método imprimirDatos, el cual
+escribe por pantalla los valores de sus propiedades. Posteriormente,
+crear 3 instancias de este objeto y guárdelas en un array. Con la
+ayuda de un bucle usar el método imprimirDatos para mostrar por
+pantalla los valores de los tres objetos.*/
+
+      function imprimirInfo() {
+        document.write("<h1> Código : " + this.codigo + " </h1>");
+        document.write("<h2> Nombre : " + this.nombre + " </h2>");
+        document.write("<h3> Precio : " + this.precio + " </h3>");
+      }
+
+      function ProductoAlimenticio(codigo, nombre, precio) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.imprimirInfo = imprimirInfo;
+      }
+      var arr = [
+        new ProductoAlimenticio(124, "Lechuga", 50),
+        new ProductoAlimenticio(123, "Tomate", 25),
+        new ProductoAlimenticio(234, "Pollo", 31),
+        new ProductoAlimenticio(1, "Jamón", 45000),
+      ];
+      arr.forEach((element) => {
+        element.imprimirInfo();
+      });
+    </script>
+  </body>
+</html>

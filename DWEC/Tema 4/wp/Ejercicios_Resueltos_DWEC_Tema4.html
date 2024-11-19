@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Resueltos DWEC Tema 4</title>
+</head>
+<body>
+    <h1>Ejercicios Resueltos: Manipulación del DOM</h1>
+
+    <!-- Ejercicio 1 -->
+    <h2>1. Calcular la diagonal de la pantalla</h2>
+    <p>Recoger la anchura y altura de la pantalla y calcular la diagonal:</p>
+    <button onclick="calcularDiagonal()">Calcular diagonal</button>
+    <pre id="resultado1"></pre>
+    <script>
+        function calcularDiagonal() {
+            const ancho = window.screen.width;
+            const alto = window.screen.height;
+            const diagonal = Math.sqrt(ancho ** 2 + alto ** 2).toFixed(2);
+            document.getElementById('resultado1').innerText = `Diagonal de la pantalla: ${diagonal} px`;
+        }
+    </script>
+
+    <!-- Ejercicio 2 -->
+    <h2>2. Modificar propiedades del objeto Document</h2>
+    <button onclick="modificarDocumento()">Aplicar modificaciones</button>
+    <script>
+        function modificarDocumento() {
+            document.body.style.color = "white";
+            document.body.style.backgroundColor = "grey";
+            document.title = "Modificaciones del objeto Document";
+            alert("Propiedades modificadas: color blanco, fondo gris, título actualizado.");
+        }
+    </script>
+
+    <!-- Ejercicio 3 -->
+    <h2>3. Ventana que se mueve y se cierra</h2>
+    <p>Abre una ventana que se desplaza aleatoriamente y luego se cierra:</p>
+    <button onclick="moverYCerrarVentana()">Iniciar</button>
+    <script>
+        function moverYCerrarVentana() {
+            const nuevaVentana = window.open("", "", "width=400,height=300");
+            let movimientos = 0;
+            const maxMovimientos = 10;
+
+            const interval = setInterval(() => {
+                if (movimientos < maxMovimientos) {
+                    const x = Math.floor(Math.random() * screen.width);
+                    const y = Math.floor(Math.random() * screen.height);
+                    nuevaVentana.moveTo(x, y);
+                    nuevaVentana.document.write(`<p>Coordenadas: (${x}, ${y})</p>`);
+                    movimientos++;
+                } else {
+                    clearInterval(interval);
+                    nuevaVentana.close();
+                }
+            }, 1000);
+        }
+    </script>
+
+    <!-- Ejercicio 6 -->
+    <h2>6. Modificar color del texto mediante un desplegable</h2>
+    <p>Selecciona un color para cambiar el texto:</p>
+    <select id="colorSelect" onchange="cambiarColorTexto()">
+        <option value="black">Negro</option>
+        <option value="red">Rojo</option>
+        <option value="blue">Azul</option>
+        <option value="green">Verde</option>
+    </select>
+    <p id="textoModificable">Este texto cambiará de color.</p>
+    <script>
+        function cambiarColorTexto() {
+            const color = document.getElementById("colorSelect").value;
+            document.getElementById("textoModificable").style.color = color;
+        }
+    </script>
+
+    <!-- Ejercicio 9 -->
+    <h2>9. Añadir elementos dinámicamente al DOM</h2>
+    <p>Escribe un texto y añádelo a una lista:</p>
+    <input type="text" id="nuevoElemento" placeholder="Escribe algo...">
+    <button onclick="agregarElemento()">Añadir</button>
+    <ul id="listaDinamica"></ul>
+    <script>
+        function agregarElemento() {
+            const texto = document.getElementById("nuevoElemento").value;
+            if (texto.trim()) {
+                const li = document.createElement("li");
+                li.textContent = texto;
+                document.getElementById("listaDinamica").appendChild(li);
+                document.getElementById("nuevoElemento").value = "";
+            }
+        }
+    </script>
+
+    <!-- Ejercicio 10 -->
+    <h2>10. Mostrar dimensiones de la ventana al redimensionar</h2>
+    <p>Redimensiona la ventana para ver sus dimensiones:</p>
+    <pre id="resultado10"></pre>
+    <script>
+        window.onresize = function() {
+            const ancho = window.innerWidth;
+            const alto = window.innerHeight;
+            document.getElementById('resultado10').innerText = `Dimensiones: ${ancho}px x ${alto}px`;
+        };
+    </script>
+
+    <!-- Ejercicio 11 -->
+    <h2>11. Mostrar imágenes aleatorias</h2>
+    <p>Cambia la imagen mostrada aleatoriamente al hacer clic:</p>
+    <button onclick="mostrarImagenAleatoria()">Cambiar imagen</button>
+    <img id="imagenAleatoria" src="" alt="Imagen aleatoria" width="300">
+    <script>
+        const imagenes = [
+            "https://via.placeholder.com/300/FF0000/FFFFFF?text=Imagen+1",
+            "https://via.placeholder.com/300/00FF00/FFFFFF?text=Imagen+2",
+            "https://via.placeholder.com/300/0000FF/FFFFFF?text=Imagen+3"
+        ];
+
+        function mostrarImagenAleatoria() {
+            const indice = Math.floor(Math.random() * imagenes.length);
+            document.getElementById("imagenAleatoria").src = imagenes[indice];
+        }
+    </script>
+</body>
+</html>

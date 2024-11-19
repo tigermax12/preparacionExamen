@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Título</title>
+        <style>img {
+            position: absolute;
+            transition: top 0.5s, left 0.5s;
+        }</style>
+    </head>
+    <body>
+        <script>
+            window.onload = ()=>{
+                var img = document.getElementsByTagName("img")[0];
+                img.style.left = "0px";
+                img.style.top = "0px";
+                window.setInterval(rabbitWalk,2000);
+                /*function rabbitWalk(){
+                    var t = Math.round(window.innerHeight * Math.random())+'px';
+                    if(t>150){
+                        t=t-150;
+                        if(t<0){
+                            t=Math.abs(t);
+                        }
+                    }
+                    var l = Math.round(window.innerWidth * Math.random())+'px';
+                    if(l>150){
+                        l=l-150;
+                        if(l<0){
+                            l=Math.abs(l);
+                        }
+                    }
+                    console.log(l,t);
+                    img.style.left = l;
+                    img.style.top = t;
+                }*/
+                function rabbitWalk(){
+                    let imagen = document.getElementsByTagName("img")[0];
+                    let ancho  = window.innerWidth;
+                    let alto = window.innerHeight;
+                    var posX = Math.floor(Math.random() * (ancho-imagen.width));
+                    var posY = Math.floor(Math.random() * (alto-imagen.height));
+                    imagen.style.left = posX + "px";
+                    imagen.style.top = posY + "px";
+                }
+            }
+        </script>
+        <img src="images/rabbit-skip.gif" alt="">
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+    //Coerción explícita
+      Number(null); // 0
+      Number(undefined); //NaN
+      Number(true); // 1
+      Number(false); // 0
+      Number(" 10 "); // 10
+      Number("-29.45"); // -29.45
+      Number("\n"); // 0
+      Number(" 28s "); // NaN
+      Number(123); //123
+
+    // Coercion implicita
+      +"123"; // 123
+      123 != "123"; // false
+      4 > "5"; // true
+      5 / null; // Infinity
+      true | 0; // 1
+    </script>
+  </head>
+  <body></body>
+</html>

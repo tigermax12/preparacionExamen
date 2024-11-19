@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 4: Validación de Correo Electrónico</title>
+</head>
+<body>
+    <h2>Ejercicio 4: Validación de Correo Electrónico</h2>
+    <input type="text" id="correo" placeholder="Introduce tu correo">
+    <button id="validar">Validar</button>
+    <div id="correo-resultado"></div>
+
+    <script>
+        document.getElementById('validar').addEventListener('click', () => {
+            const correo = document.getElementById('correo').value;
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const resultado = regex.test(correo) ? "Correo válido" : "Correo no válido";
+            document.getElementById('correo-resultado').textContent = resultado;
+        });
+    </script>
+</body>
+</html>

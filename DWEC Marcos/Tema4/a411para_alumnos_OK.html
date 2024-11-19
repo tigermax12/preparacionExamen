@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script>
+      //-----------------------------------------------------------------------
+      //Pdades y métodos a usar: createElement, appendChild, cloneNode, insertBefore
+      //firstChild, LastChild, parentNode, childNodes, removeChild, innerHTML
+      //-------------------------------------------------------------------------
+      //1. Función Insertar filas en la tabla
+      //2. Función Modificar texto de una fila de la tabla
+      //3. Función cambiarValores (primer valor por último valor)
+      //4. Función copiar encima: copiar la fila actual encima, dentro de la tabla
+      //5. Función borrar la fila actual, dentro de la tabla
+
+      //1. Función Insertar filas en la tabla
+      // 1.1 Coger el valor escrito en la caja txtCaja
+      // 1.2. Crear el primer td y meter ese valor
+      // crear codigofila: var codigoFila="<td>"+document.getElementById("txtCaja").value+"</td>"
+      // 1.3  Crear esos td con los botones:
+      // codigoFila += "<td><input type='button' onclick='copiarEncima(this);' value='Copiar encima' /></td>";
+      //codigoFila += "<td><input type='button' onclick='borrar(this);' value='Borrar' /></td>";
+      // 1.4 Crear tr con ese contenido
+      // 1.5 Colgar ese tr de la tabla
+
+      //3. Función Cambiar valores (primer valor por último valor)
+      //3.1 Posicionarse en la tabla, coger su nodoHijo primero, es decir primera fila,
+      //    coger su primerHijo a su vez, es decir coger primera celda. Guardar dicho valor en variable primertexto.
+      //3.2 Posicionarse en la tabla, coger su nodoHijo último, es decir última fila,
+      //    coger su primerHijo, es decir coger primera celda. Guardar dicho valor en variable ultimotexto.
+      //3.3 Intercambiar con innerHTML, primertexto con ultimotexto., en esas posiciones ya localizadas.
+    </script>
+  </head>
+
+  <body>
+    <span>Texto a introducir en la tabla</span>
+    <input type="text" id="txtCaja" /><br />
+    <input type="button" onclick="insertar();" value="Insertar texto nuevo" />
+    <span>Selecciona Id para modificar su texto(0,1,2,,,)</span>
+    <input type="text" id="txtId" />
+    <span>Nuevo Texto</span>
+    <input type="text" id="txtNuevo" />
+    <input type="button" onclick="modificar();" value="Modificar texto" />
+    <table id="tabla" style="border: 1px dashed green"></table>
+    <input
+      type="button"
+      onclick="cambiarValores();"
+      value="Intercambiar el primer valor por el último"
+    />
+  </body>
+
+  <script>
+
+    function insertar() {
+      var txtCaja = document.getElementById("txtCaja").value;
+      var tabla = document.getElementById("tabla");
+      var elemento = document.createElement("tr");
+      elemento.innerHTML =
+        "<td>" +
+        txtCaja +
+        "</td><td><button onclick='copiarEncima(this);'>Copiar encima</button></td><td><button onclick='borrar(this);'>Borrar</button></td>";
+      tabla.appendChild(elemento);
+    }
+
+    function borrar(obj) {
+      var fila = obj.parentNode.parentNode;
+      var tabla = document.getElementById("tabla");
+      tabla.removeChild(fila);
+    }
+
+    function copiarEncima(boton) {
+      var fila = boton.parentNode.parentNode;
+      var tabla = document.getElementById("tabla");
+      tabla.insertBefore(fila.cloneNode(true), fila);
+    }
+
+    function modificar() {
+        var tabla = document.getElementById("tabla");
+        var id = document.getElementById("txtId").value;
+        var nuevoTexto = document.getElementById("txtNuevo").value;
+        tabla.childNodes[id].firstChild.innerHTML = nuevoTexto;
+    }
+
+    function cambiarValores(){
+        var tabla = document.getElementById("tabla");
+        var aux = tabla.firstChild.innerHTML;
+        tabla.firstChild.innerHTML = tabla.lastChild.innerHTML;
+        tabla.lastChild.innerHTML = aux;
+    }
+  </script>
+</html>

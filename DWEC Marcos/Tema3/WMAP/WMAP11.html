@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título</title>
+  </head>
+  <body>
+    <script>
+      /*1.Crear una expresión regular que permita identificar si un número de teléfono
+            cumple con el formato establecido: 943-852-978, 943 852 978 o 943852978.
+*/
+      pattern = /^9\d{2}\s\d{3}\s\d{3}$|^9\d{8}$|^9\d{2}-\d{3}-\d{3}$/;//Expresión regular que busca un número de teléfono con 
+      // el formato 943-852-978, 943 852 978 o 943852978
+
+
+      regex = new RegExp(pattern);
+      console.log(regex);
+      tlf = "923456789";
+      console.log(regex.test(tlf) + " " + tlf);
+      tlf = "923-456-789";
+      console.log(regex.test(tlf) + " " + tlf);
+      tlf = "923 456 789";
+      console.log(regex.test(tlf) + " " + tlf);
+      tlf = "923             456 789";
+      console.log(regex.test(tlf) + " " + tlf);
+      tlf = "12-456-789";
+      console.log(regex.test(tlf) + " " + tlf);
+      tlf = "923.543.532";
+      console.log(regex.test(tlf) + " " + tlf);
+      tlf = "1 1 1";
+      console.log(regex.test(tlf) + " " + tlf);
+      tlf = "";
+      console.log(regex.test(tlf) + " " + tlf);
+      tlf = "patata";
+      console.log(regex.test(tlf) + " " + tlf);
+      tlf = "911111111111111111";
+      console.log(regex.test(tlf) + " " + tlf);
+      tlf = "925 952-521";
+      console.log(regex.test(tlf) + " " + tlf);
+    </script>
+  </body>
+</html>

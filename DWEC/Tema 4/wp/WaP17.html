@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+</head>
+<body>
+    <ul id="thelist">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const items = document.querySelectorAll("#thelist li");
+
+            items.forEach((item, index) => {
+                if (index % 2 === 1) { // Fila par (índice impar)
+                    item.style.backgroundColor = "#eeffee";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

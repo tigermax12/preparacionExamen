@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Título</title>
+    </head>
+    <body>
+        <h3>Modificacion propiedades CSS</h3>
+        <div>
+            <span>Caja de texto</span>
+            <input type="text" name="" id="txtColor">
+        <button id="actualizar" onclick='mostrar(this);''>Ocultar</button>
+        </div>
+        <script>
+            function mostrar(){
+                var texto = document.getElementById('actualizar');
+                span = document.getElementsByTagName('span');
+                if(texto.textContent == 'Ocultar'){
+                    texto.textContent='Mostrar';
+                    span[0].style.display='none';
+                }else{
+                    texto.textContent='Ocultar';
+                    span[0].style.display='inline';
+                }
+             
+            }
+        </script>
+    </body>
+</html>

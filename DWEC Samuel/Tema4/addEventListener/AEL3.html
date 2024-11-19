@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Título</title>
+    </head>
+    <body>
+        <p>This example uses the AddEvenListener()</p>
+        <button id="myBtn">Try it</button>
+        <p id="demo"></p>	
+    <script>
+    var x = document.getElementById("myBtn");
+    text = document.getElementById('demo');
+    x.addEventListener("mouseover", myFunction);
+    x.addEventListener("click", someOtherFunction);
+    x.addEventListener('mouseout',myThirdFunction);
+
+    function myFunction(){
+        text.innerHTML += "Moused Over! <br>";
+    }
+    function someOtherFunction(){
+        text.innerHTML+='Clicked!<br>';
+    }   
+    function myThirdFunction(){
+        text.innerHTML+='Mouse Out!<br>';
+    }
+    </script>
+    </body>
+
+</html>

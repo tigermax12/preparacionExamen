@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function modificarSize() {
+            var parrafos = document.getElementsByTagName('p');
+            
+            var fontSize = document.getElementById("cboSize").value;
+            
+            for (var i = 0; i < parrafos.length; i++) {
+                parrafos[i].style.fontSize = fontSize + "px";
+            }
+        }
+    </script>
+
+    <div id="elementosTag">
+        <h3>Modificación de tamaño de texto</h3>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro velit perspiciatis quae delectus labore placeat, blanditiis magnam quo nulla commodi nihil repudiandae, sint illum consequuntur eveniet incidunt animi a quibusdam.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem excepturi quae sunt, cupiditate necessitatibus vitae doloremque eos dolorum quasi quaerat voluptatibus commodi ipsam asperiores quisquam natus modi nostrum id fugiat?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem sed velit itaque ducimus repellendus expedita odit rem dolores beatae, inventore quo porro. Eveniet ducimus vero tempora iste, commodi sunt quis.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro velit perspiciatis quae delectus labore placeat, blanditiis magnam quo nulla commodi nihil repudiandae, sint illum consequuntur eveniet incidunt animi a quibusdam.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem excepturi quae sunt, cupiditate necessitatibus vitae doloremque eos dolorum quasi quaerat voluptatibus commodi ipsam asperiores quisquam natus modi nostrum id fugiat?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem sed velit itaque ducimus repellendus expedita odit rem dolores beatae, inventore quo porro. Eveniet ducimus vero tempora iste, commodi sunt quis.
+        </p>
+    </div>
+
+    <div>
+        <span>Seleccionar tamaño de texto:</span>
+        <select id="cboSize">
+            <option value="10">Small</option>
+            <option value="12">Medium</option>
+            <option value="14">Large</option>
+        </select>
+        <button id="actualizar" onclick="modificarSize();">Cambiar</button>
+    </div>
+</body>
+</html>

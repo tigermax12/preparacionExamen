@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <style>
+        .overlay {
+            background-color: #000;
+            opacity: 0.5;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 1;
+        }
+        .msg {
+            position: absolute;
+            background-color: #eeffee;
+            padding: 10px;
+            width: 200px; height: 100px;
+            top: 50%; left: 50%;
+            margin-left: -100px;
+            margin-top: -50px;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        window.onload = function () {
+            const overlay = document.createElement("div");
+            overlay.className = "overlay";
+
+            const msg = document.createElement("div");
+            msg.className = "msg";
+            msg.textContent = "Please join our mailing list! (Click to close.)";
+
+            document.body.appendChild(overlay);
+            document.body.appendChild(msg);
+
+            overlay.addEventListener("click", () => {
+                document.body.removeChild(overlay);
+                document.body.removeChild(msg);
+            });
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título</title>
+</head>
+
+<body>
+    <button>Aumentar contador</button>
+    <a href="ejercicio1_localStorageHref.html" target="_blank">Ir al contador</a>
+    <script>
+        window.onload = () => {
+            contador = localStorage.getItem('contador') || 0;
+            document.getElementsByTagName("h1")[1].textContent = contador;
+        }
+        document.getElementsByTagName('button')[0].addEventListener('click', () => {
+            contador = localStorage.getItem('contador');
+            contador++;
+            localStorage.setItem('contador', contador);
+            contador = localStorage.getItem('contador') || 0;
+            document.getElementsByTagName("h1")[1].textContent = contador;
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título</title>
+    <style>
+        h1{
+            display: inline;
+        }
+        h3{
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <form action>
+        <input type="text"   placeholder="Nombre">
+        <input type="text"   placeholder="Apellido">
+        <button>Guardar!</button>
+        <br><br><br>
+    </form>
+    <button>Mostrar nombre</button>
+    <br>
+    <h1>Mostrar nombre : <h1></h1>
+    </h1>
+    <br>
+    <h3>Mostrar apellido : <h3></h3>
+    </h3>
+    <script>
+        document.getElementsByTagName('button')[0].addEventListener('click', function () {
+            localStorage.setItem('nombre', document.getElementsByTagName('input')[0].value);
+            localStorage.setItem('apellido', document.getElementsByTagName('input')[1].value);
+        });
+
+        document.getElementsByTagName('button')[1].addEventListener('click', function () {
+            document.getElementsByTagName('h1')[1].textContent = localStorage.getItem('nombre');
+            document.getElementsByTagName('h3')[1].textContent = localStorage.getItem('apellido');
+        });
+
+    </script>
+</body>
+
+</html>

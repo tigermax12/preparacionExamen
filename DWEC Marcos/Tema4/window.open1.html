@@ -1,0 +1,26 @@
+<script>
+  var nom = prompt("Introduce el título para la nueva ventana");
+  var ventana = window.open("", "nueva ventana");
+  var SO = navigator.platform;
+  ventana.document.write("<html>");
+  ventana.document.write("<head><title>" + nom + "</title> </head>");
+  ventana.document.write("<h1>Documento abierto con : " + SO + "</h1>");
+</script>
+
+<script type="text/javascript">
+  ventana.name = nom;
+  ventana.document.write('<form name="cambiacolor">');
+  ventana.document.write(
+    "<b>Selecciona un color para el fondo de página:</b><br>"
+  );
+  ventana.document.write('<select name="color">');
+  ventana.document.write('<option value="purple">Rojo</option>');
+  ventana.document.write('<option value="lightgreen">Azul</option>');
+  ventana.document.write('<option value="beige">Amarillo</option>');
+  ventana.document.write('<option value="red">Verde</option>');
+  ventana.document.write("</select>");
+  ventana.document.write(
+    '<input type="button" value="Modifica el color" onclick="document.bgColor=document.cambiacolor.color.value">'
+  );
+  ventana.document.write("</form> </html>");
+</script>

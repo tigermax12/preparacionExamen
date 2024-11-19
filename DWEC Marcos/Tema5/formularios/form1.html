@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título</title>
+</head>
+
+<body>
+
+    <script>
+        /* Crear un formulario, donde ante el evento de submit, se valida una dirección de correo electrónico.
+         Define el correspondiente método. Usa addEventListener y preventDefault.*/
+        /*A.5.5. Al igual que el anterior, añade un método que valide un DNI y otro para validar números de teléfono. */
+        function validarCorreo(evento) {
+            regex = /^\w.+@{1}[a-z]+\.[a-z]{3}$/;
+            //Permite cualquier caracter al principio del correo y puntos
+
+            if (document.formulario.email.value.match(regex) && document.formulario.email.value.length > 0) {
+                return true;
+            } else {
+                evento.preventDefault();
+                alert("Correo no válido");
+                return false;
+            }
+        }
+
+        /*function validarDNI(evento) {
+            regex = /^\d{8}[A-Z]{1}$/;
+            evento.preventDefault();
+            if (document.formulario.DNI.value.match(regex)) {
+                return true;
+            }
+            else {
+
+                alert("DNI no válido");
+                return false;
+            }
+        }*/
+
+        function validarDNI(evento) {
+            regex = /^\d{8}[A-Z]{1}$/;
+
+            mapLetras = new Map();
+            mapLetras.set(0, "T");
+            mapLetras.set(1, "R");
+            mapLetras.set(2, "W");
+            mapLetras.set(3, "A");
+            mapLetras.set(4, "G");
+            mapLetras.set(5, "M");
+            mapLetras.set(6, "Y");
+            mapLetras.set(7, "F");
+            mapLetras.set(8, "P");
+            mapLetras.set(9, "D");
+            mapLetras.set(10, "X");
+            mapLetras.set(11, "B");
+            mapLetras.set(12, "N");
+            mapLetras.set(13, "J");
+            mapLetras.set(14, "Z");
+            mapLetras.set(15, "S");
+            mapLetras.set(16, "Q");
+            mapLetras.set(17, "V");
+            mapLetras.set(18, "H");
+            mapLetras.set(19, "L");
+            mapLetras.set(20, "C");
+            mapLetras.set(21, "K");
+            mapLetras.set(22, "E");
+            var dni = document.formulario.DNI.value;
+            var numeros = dni.substring(0, 8);
+            var letraN = numeros % 23;
+            if (mapLetras.get(letraN) == dni.substring(8, 9) && dni.length == 9) {
+                return true;
+            }
+            else {
+                alert("DNI no válido");
+                evento.preventDefault();
+                return false;
+            }
+        }
+
+
+        function validarTel(evento) {
+            regex = /\d{9}/;
+
+            if (document.formulario.telefono.value.match(regex) && document.formulario.telefono.value.length == 9) {
+                return true;
+            } else {
+                evento.preventDefault();
+                alert("Teléfono no válido");
+                return false;
+            }
+        }
+
+
+        function validar(evento) {
+            if (validarCorreo(evento) && validarDNI(evento) && validarTel(evento)) {
+                formulario.submit();
+            }
+            else {
+                evento.preventDefault();
+            }
+        }
+        document.addEventListener('submit', validar);
+
+    </script>
+    <form action="" method="get" name="formulario">
+        <label for="correo">Correo : </label>
+        <input type="email" name="email" id="">
+        <label for="DNI">DNI : </label>
+        <input type="text" name="DNI" id="">
+        <label for="tel">Telefono : </label>
+        <input type="tel" name="telefono" id="">
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+
+</html>

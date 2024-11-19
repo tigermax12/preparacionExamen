@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <style>
+        .slide img {
+            display: none;
+        }
+        .slide img.current {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <img src="firstImage.jpg" class="current">
+        <img src="secondImage.jpg">
+        <img src="thirdImage.jpg">
+    </div>
+
+    <script>
+        const images = document.querySelectorAll(".slide img");
+        let currentIndex = 0;
+
+        function rotateImages() {
+            images[currentIndex].classList.remove("current");
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add("current");
+        }
+
+        setInterval(rotateImages, 5000);
+    </script>
+</body>
+</html>

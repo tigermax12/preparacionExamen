@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen y Ejercicios JavaScript</title>
+</head>
+<body>
+    <!-- 
+        Resumen:
+        1. Características de JavaScript:
+           - Lenguaje interpretado para dinamismo en la web.
+           - Sintaxis similar a C++ y Java. Débilmente tipado.
+           - Ejecución secuencial en el navegador.
+        2. Sintaxis:
+           - Sensible a mayúsculas y minúsculas.
+           - Comentarios: // para una línea, /* ... */ para varias.
+           - Uso del punto y coma recomendado al final de cada instrucción.
+           - Tipos de datos primitivos: Números, cadenas de texto, booleanos.
+        3. Variables:
+           - Declaración: var, let, const.
+           - Ámbito: Global (fuera de funciones), Local (dentro de funciones con var).
+        4. Operadores:
+           - Aritméticos, lógicos, asignación, comparación y condicionales.
+        5. Estructuras de Control:
+           - Condicionales: if, switch.
+           - Bucles: while, for, for-in.
+           - Métodos: Array.forEach().
+    -->
+
+    <h1>Ejercicios Resueltos de JavaScript</h1>
+
+    <h2>1. Mostrar si un número es par o impar</h2>
+    <p>Introduce un número para verificar si es par o impar:</p>
+    <input type="number" id="numCheck" placeholder="Introduce un número">
+    <button onclick="verParImpar()">Verificar</button>
+    <p id="resultado"></p>
+
+    <h2>2. Operaciones con MAX_VALUE y MIN_VALUE</h2>
+    <button onclick="mostrarValores()">Mostrar Valores</button>
+    <p id="valores"></p>
+
+    <h2>3. Uso de for y while</h2>
+    <button onclick="usarFor()">Bucle for</button>
+    <button onclick="usarWhile()">Bucle while</button>
+    <ul id="listaBucle"></ul>
+
+    <h2>4. Respuesta a números imaginarios</h2>
+    <p>¿Cuál es la raíz cuadrada de -1?</p>
+    <input type="text" id="respuestaImaginarios" placeholder="Introduce tu respuesta">
+    <button onclick="verificarImaginario()">Verificar</button>
+    <p id="resultadoImaginarios"></p>
+
+    <script>
+        // 1. Verificar si un número es par o impar
+        function verParImpar() {
+            const num = document.getElementById('numCheck').value;
+            const resultado = num % 2 === 0 ? "El número es par." : "El número es impar.";
+            document.getElementById('resultado').innerText = resultado;
+        }
+
+        // 2. Mostrar valores MAX_VALUE y MIN_VALUE
+        function mostrarValores() {
+            const maxValue = Number.MAX_VALUE;
+            const minValue = Number.MIN_VALUE;
+            const multiplicado = maxValue * 2;
+            document.getElementById('valores').innerHTML = 
+                `MAX_VALUE: ${maxValue}<br>MIN_VALUE: ${minValue}<br>MAX_VALUE * 2: ${multiplicado}`;
+        }
+
+        // 3. Bucle for
+        function usarFor() {
+            const lista = document.getElementById('listaBucle');
+            lista.innerHTML = "";
+            for (let i = 1; i <= 5; i++) {
+                const li = document.createElement('li');
+                li.innerText = `For Loop Iteración ${i}`;
+                lista.appendChild(li);
+            }
+        }
+
+        // 3. Bucle while
+        function usarWhile() {
+            const lista = document.getElementById('listaBucle');
+            lista.innerHTML = "";
+            let i = 1;
+            while (i <= 5) {
+                const li = document.createElement('li');
+                li.innerText = `While Loop Iteración ${i}`;
+                lista.appendChild(li);
+                i++;
+            }
+        }
+
+        // 4. Verificar números imaginarios
+        function verificarImaginario() {
+            const respuesta = document.getElementById('respuestaImaginarios').value.trim().toLowerCase();
+            const mensaje = respuesta === "i" 
+                ? "¡Muy bien! Conoces perfectamente los números imaginarios."
+                : "¡Fatal! Mírate un poco los números imaginarios...";
+            document.getElementById('resultadoImaginarios').innerText = mensaje;
+        }
+    </script>
+</body>
+</html>

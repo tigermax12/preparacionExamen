@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    </script>
+    <script>
+        var texto= prompt("Ingresa un título para la ventana");
+        var ventanaNueva= window.open();
+        ventanaNueva.document.write( "<h1>" +texto+ "</h1>");
+    </script>
+    <script type="text/javascript">
+        window.name= texto;
+        ventanaNueva.document.write("<form name=\"cambiacolor\">");
+        ventanaNueva.document.write("<b>Selecciona un color para el fondo de página:</b><br>");
+        ventanaNueva.document.write("<select name=\"color\">");
+        ventanaNueva.document.write("<option value=\"red\">Rojo</option>");
+        ventanaNueva.document.write("<option value=\"blue\">Azul</option>");
+        ventanaNueva.document.write("<option value=\"yellow\">Amarillo</option>");
+        ventanaNueva.document.write("<option value=\"green\">Verde</option>");
+        ventanaNueva.document.write("</select>"); 
+        ventanaNueva.document.write("<input type=\"button\" value=\"Modifica el color\" onclick=\"document.bgColor=document.cambiacolor.color.value\">");
+        ventanaNueva.document.write("</form>");
+      </script>
+</body>
+</html>

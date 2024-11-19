@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function abrirFuncion(){
+            var ventanaSecundaria= window.open("", '_blank', "width= 500, height= 500");
+            ventanaSecundaria.location= document.formulario.url.value;
+        }
+        
+
+    </script>
+</head>
+<body>
+    <h1>Comunicacion entre ventanas </h1><br>
+    <form name="formulario">
+        <input type="text" name="url" size="50" value="http://www.">
+        <input type="button" value="Mostrar URL en ventana secundaria"
+                onclick="abrirFuncion()">
+    </form>
+</body>
+</html>

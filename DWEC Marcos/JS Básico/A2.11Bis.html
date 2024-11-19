@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título</title>
+    
+  </head>
+  <body>
+    <button onclick="verBucle()">Ver Bucle</button>
+    <p>Texto 1</p>
+    <p>Texto 2</p>
+    <p>Texto 3</p>
+    <p>Texto 4</p>
+    <script>
+      etiquetas = document.getElementsByTagName('p');
+
+      function verBucle() {
+        var contador = 0;
+        while (contador < etiquetas.length) {
+          alert(etiquetas[contador].innerHTML);
+          contador++;
+        }
+      }
+
+      function miFun(par, indice, arr) {
+        document.write("<br/> Párrafo : " + (indice + 1) + " : " + par.textContent + "</br>");
+      }
+
+      var arrayEtiquetas = Array.from(etiquetas);
+      console.log(arrayEtiquetas);
+      arrayEtiquetas.forEach(miFun);
+
+    </script>
+  </body>
+</html>

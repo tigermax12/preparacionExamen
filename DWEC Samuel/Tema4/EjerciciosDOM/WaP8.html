@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function recorrerTag() {
+        var parrafos = document.getElementsByTagName('p');
+        var fontColor = document.getElementById("txtColor").value;
+        for (var i = 0; i < parrafos.length; i++) {
+                parrafos[i].style.color= fontColor;
+            }
+      }
+    </script>
+</head>
+<body>
+        <div>
+            <p>Texto</p>
+            <p>Texto</p>
+            <p>Texto</p>
+            <p>Texto</p>
+        <div>
+            <input type="text" id="txtColor">
+            <button id="actualizar" onclick="recorrerTag();">Modificar</button>
+        </div>
+    </div>    
+        </body>
+</html>

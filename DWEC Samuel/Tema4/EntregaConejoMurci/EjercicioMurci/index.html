@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            position: absolute;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+    <script>
+        window.onload= function(){
+        var imagen = document.getElementById('foto');
+        //var velocidadX= 5;
+        var velocidadY= 5;
+        var intervalId = setInterval(desplazarImagen, 5);
+        
+
+        function desplazarImagen() {
+            //var nuevaX = imagen.offsetLeft + velocidadX;
+            var nuevaY = imagen.offsetTop + velocidadY;
+
+                /*if(nuevaX <= 0|| nuevaX >= window.innerWidth - imagen.width){
+                    velocidadX= -velocidadX;
+                }*/
+                if(nuevaY <= 0|| nuevaY >= window.innerHeight - imagen.height){
+                    velocidadY= -velocidadY;
+                }
+
+                //imagen.style.left= nuevaX + "px";
+                imagen.style.top= nuevaY + "px";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <img id="foto" src="./images/murci.jpg" alt="">
+</body>
+</html>

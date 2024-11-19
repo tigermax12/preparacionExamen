@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Resueltos DWEC Tema 3 - Objetos y Prototipos</title>
+</head>
+<body>
+    <h1>Ejercicios Resueltos: Objetos y Prototipos</h1>
+
+    <!-- Ejercicio: Crear prototipo Alumno -->
+    <h2>Prototipo Alumno</h2>
+    <p>El prototipo Alumno tiene las siguientes características:</p>
+    <ul>
+        <li>Propiedad <code>firstName</code>.</li>
+        <li>Métodos añadidos al prototipo:
+            <ul>
+                <li><code>decirSaludo</code>: Muestra "Hola soy XXX".</li>
+                <li><code>caminar</code>: Muestra "Estoy caminando".</li>
+            </ul>
+        </li>
+    </ul>
+
+    <button onclick="crearPrototipoAlumno()">Crear instancias y probar métodos</button>
+    <pre id="resultado1"></pre>
+    <script>
+        // Prototipo Alumno
+        function Alumno(firstName) {
+            this.firstName = firstName;
+        }
+
+        Alumno.prototype.decirSaludo = function() {
+            console.log(`Hola soy ${this.firstName}`);
+        };
+
+        Alumno.prototype.caminar = function() {
+');
+        };
+
+        function crearPrototipoAlumno() {
+            const alumnoA = new Alumno('Pepe');
+            const alumnoB = new Alumno('Ana');
+            alumnoA.decirSaludo();
+            alumnoB.caminar();
+            document.getElementById('resultado1').innerText = 
+                `Instancias creadas:
+            Alumno A: ${alumnoA.firstName}
+            Alumno B: ${alumnoB.firstName}`;
+        }
+    </script>
+
+    <!-- Ejercicio: Subclase AlumnoEso -->
+    <h2>Subclase AlumnoEso</h2>
+    <p>El prototipo AlumnoEso hereda de Alumno y tiene:</p>
+    <ul>
+        <li>Propiedad <code>subject</code>.</li>
+        <li>Métodos heredados: <code>decirSaludo</code> (modificado), <code>caminar</code>.</li>
+        <li>Método propio: <code>decirAdios</code>.</li>
+    </ul>
+
+    <button onclick="crearPrototipoAlumnoEso()">Crear instancia de AlumnoEso</button>
+    <pre id="resultado2"></pre>
+    <script>
+        // Subclase AlumnoEso
+        function AlumnoEso(firstName, subject) {
+            Alumno.call(this, firstName);
+            this.subject = subject;
+        }
+
+        // Herencia del prototipo de Alumno
+        AlumnoEso.prototype = Object.create(Alumno.prototype);
+        AlumnoEso.prototype.constructor = AlumnoEso;
+
+        // Modificar decirSaludo
+        AlumnoEso.prototype.decirSaludo = function() {
+            console.log(`Hola soy ${this.firstName} y estudio ${this.subject}`);
+        };
+
+        // Método decirAdios
+        AlumnoEso.prototype.decirAdios = function() {
+            console.log('Adiós');
+        };
+
+        function crearPrototipoAlumnoEso() {
+            const alumno1 = new AlumnoEso('Juan', 'Matemáticas');
+            alumno1.decirSaludo();
+            alumno1.caminar();
+            alumno1.decirAdios();
+
+            const resultado = [
+                `Instancia creada:
+Alumno 1: ${alumno1.firstName}, Asignatura: ${alumno1.subject}`,
+                `Alumno1 instanceof Alumno: ${alumno1 instanceof Alumno}`,
+                `Alumno1 instanceof AlumnoEso: ${alumno1 instanceof AlumnoEso}`
+            ].join('');
+
+            document.getElementById('resultado2').innerText = resultado;
+        }
+    </script>
+
+    <!-- Ejercicio: Comprobar diferencias entre instancias -->
+    <h2>Comprobación de métodos</h2>
+    <p>Crear instancias de <code>Alumno</code> y <code>AlumnoEso</code> y probar diferencias:</p>
+    <button onclick="probarMetodos()">Probar métodos</button>
+    <pre id="resultado3"></pre>
+    <script>
+        function probarMetodos() {
+            const alumno1 = new AlumnoEso('Juan', 'Matemáticas');
+            const alumno2 = new Alumno('Pedro');
+
+            let resultados = [];
+            resultados.push('Métodos Alumno1 (AlumnoEso):');
+            resultados.push('- decirSaludo:');
+            alumno1.decirSaludo();
+            resultados.push('- caminar:');
+            alumno1.caminar();
+            resultados.push('- decirAdios:');
+            alumno1.decirAdios();
+
+            resultados.push('Métodos Alumno2 (Alumno):');
+            resultados.push('- decirSaludo:');
+            alumno2.decirSaludo();
+            resultados.push('- caminar:');
+            alumno2.caminar();
+            try {
+                alumno2.decirAdios();
+            } catch (error) {
+                resultados.push('- decirAdios: Método no disponible');
+            }
+
+            document.getElementById('resultado3').innerText = resultados.join('\n');
+        }
+    </script>
+</body>
+</html>

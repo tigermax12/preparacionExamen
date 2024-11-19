@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        formulario.addEventListener('submit', function(event){
+            event.preventDefault();
+            validar();
+        });
+        function validar(){
+            if (!validarDNI() || !validarCorreoElectronico() || !validarTelefono()) {
+            return; 
+        }
+            alert("Formulario validado");
+        }
+        function validarDNI(){
+            var DNI= document.getElementById('DNI').value;
+            var validacion = /^[0-9]{8}[A-Z]$/;
+            if (!validacion.test(DNI)) {
+                alert("DNI no válido");
+                return false;
+            } 
+            return true;
+        }
+        function validarCorreoElectronico(){
+            var correoElectronico= document.getElementById('correoElectronico').value;
+            if (correoElectronico === "") {
+                alert("Rellene el cmapo de correo electrónico");
+                return false;
+            } 
+            return true;
+        }
+        function validarTelefono(){
+            var telefono= document.getElementById('telefono').value;
+            var validacion = /^[0-9]{9}$/;
+            if (!validacion.test(telefono)) {
+                alert("Telefono no válido");
+                return false;
+            } 
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="DNI" placeholder="DNI">
+    <input type="text" id="correoElectronico" placeholder="Correo Electronico">
+    <input type="text" id="telefono" placeholder="Telefono">
+    <button onclick="validar()">Validar</button>
+</body>
+</html>

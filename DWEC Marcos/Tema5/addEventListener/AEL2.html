@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Título</title>
+    </head>
+    <body>
+        <p>This example uses the AddEvenListener()</p>
+        <button id="myBtn">Try it</button>
+        <p id="demo"></p>
+    <script>
+    var x = document.getElementById("myBtn");
+    var p1 = 5;
+    var p2 = 7;
+    x.addEventListener("click", ()=>{
+        myFunction(p1,p2);
+    });
+
+    function myFunction(p1,p2){
+        document.getElementById("demo").innerHTML = p1 * p2;
+    }  
+    </script>
+    </body>
+
+</html>

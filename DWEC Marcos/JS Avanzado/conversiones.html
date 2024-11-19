@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título</title>
+  </head>
+  <body>
+    <script>
+      //Conversión explícita con la función String();
+      String("1234"); // "1234"
+      String(-14.4); // "-14.4"
+      String(null); // 'Null'
+      String(undefined); // "undefined"
+      String(true); // "true"
+      String(false); // "false"
+      let num = 123; //
+      num.toString(); // "123"
+
+      //Conversión implícita
+      123 + ""; // '123'
+      "" + 123; // '123'
+
+      //Conversión explícita con la función Boolean();
+      Boolean(""); //false
+      Boolean(0); //false
+      Boolean(-0); //false
+      Boolean(NaN); //false
+      Boolean(null); //false
+      Boolean(undefined); //false
+      Boolean(false); //false
+
+      //Conversión implícita
+      if (2) {
+        console.log("True");
+      }
+      console.log(!!2); // true
+      console.log(2 || "falso"); //se evalúa como true, devuelve 2
+
+      //Conversión explícita con la función Number();
+      Number(null); // 0
+      Number(undefined); // NaN
+      Number(true); // 1
+      Number(false); // 0
+      Number(" 10 "); // 10
+      Number("-29.45"); // -29.45
+      Number("\n"); // 0
+      Number(" 28s "); // NaN
+      Number(123); // 123
+
+      //Conversión implícita
+      +"123"; //123
+      123 != "123"; //false
+      4 > "5"; //true
+      5 / null; //infinity
+      true | 0; //1
+
+      //Evitando la conversión de tipos
+      "180" + 200 + 3; // '1802003'
+      //No compila. 'hola' ++ 'mundo'; // 'holaNaN'
+      !+[] + [] + ![]; //'truefalse'
+      if ("true" == true) {
+      } //false
+    </script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título</title>
+  </head>
+  <body>
+    <script>
+      //Conversión explícita con la función String();
+      String("1234"); // "1234"
+      String(-14.4); // "-14.4"
+      String(null); // 'Null'
+      String(undefined); // "undefined"
+      String(true); // "true"
+      String(false); // "false"
+      let num1 = 123; //
+      num.toString(); // "123"
+
+      //Conversión implícita
+      123 + ""; // '123'
+      "" + 123; // '123'
+
+      //Conversión explícita con la función Boolean();
+      Boolean(""); //false
+      Boolean(0); //false
+      Boolean(-0); //false
+      Boolean(NaN); //false
+      Boolean(null); //false
+      Boolean(undefined); //false
+      Boolean(false); //false
+
+      //Conversión implícita
+      if (2) {
+        console.log("True");
+      }
+      console.log(!!2); // true
+      console.log(2 || "falso"); //se evalúa como true, devuelve 2
+
+      //Conversión explícita con la función Number();
+      Number(null); // 0
+      Number(undefined); // NaN
+      Number(true); // 1
+      Number(false); // 0
+      Number(" 10 "); // 10
+      Number("-29.45"); // -29.45
+      Number("\n"); // 0
+      Number(" 28s "); // NaN
+      Number(123); // 123
+
+      //Conversión implícita
+      +"123"; //123
+      123 != "123"; //false
+      4 > "5"; //false
+      console.log(4 > '5s');
+      5 / null; //infinity
+      console.log(true | 0); //1
+
+
+
+
+
+
+      //Evitando la conversión de tipos
+      "180" + 200 + 3; // '1802003'
+      console.log("180"+ (200 + 3));
+      //No compila. 'hola' ++ 'mundo'; // 'holaNaN'
+      console.log(!+[] + [] + ![]); //'truefalse'
+      if ("true" == true) {
+      } //false
+      if(true == "true"){
+        console.log("true es true si primero pones true") //No.
+      }
+      if ("true") {
+      } //es true porque no es ''
+      if (!!"false" == !!"true") {
+      } // se evalúa como true
+      if (0) {
+      } //false
+      if (38) {
+      } //true
+      if([0]==0) {
+        console.log("true?")
+      }
+      //La comparación == evalúa por valor,
+      //la comparación === por tipo y por valor.
+
+      0 == []; // True
+      0 == 0; // True
+      1 == true; // True
+      1 !== "1"; // True
+      1 !== true; // True
+
+      1 != "1"; // False
+      1 != true; // False
+      0 === []; // False
+      0 === ""; // False
+      1 === true; // False
+    </script>
+  </body>
+</html>

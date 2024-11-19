@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+<script>
+    function verParImpar() {
+        var numero = prompt("Numero para saber si es par o impar");
+        var resultado;
+        if (isNaN(numero)) {
+                resultado = "Por favor, ingrese un número válido.";
+        }else if (numero % 2 === 0) {
+            resultado = "El número " + numero + " es par.";
+        } else {
+            resultado = "El número " + numero + " es impar.";
+        }
+        
+    alert(resultado);
+    }
+</script>
+</head>
+<body>
+    <button onclick="verParImpar()">Comprobar</button>
+</body>
+</html>
+

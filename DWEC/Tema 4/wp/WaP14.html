@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Galería de Imágenes</title>
+</head>
+<body>
+    <div id="imageContainer"></div>
+
+    <script>
+        const imgArray = [
+            "firstImage.jpg",
+            "secondImage.jpg",
+            "thirdImage.jpg"
+        ];
+
+        function insertImage(images) {
+            const container = document.getElementById("imageContainer");
+
+            images.forEach(imageSrc => {
+                const paragraph = document.createElement("p");
+                const image = document.createElement("img");
+                image.src = imageSrc;
+                paragraph.appendChild(image);
+                container.appendChild(paragraph);
+            });
+        }
+
+        insertImage(imgArray);
+    </script>
+</body>
+</html>

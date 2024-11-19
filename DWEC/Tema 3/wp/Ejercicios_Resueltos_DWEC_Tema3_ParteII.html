@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Resueltos DWEC Tema 3 - Parte II</title>
+</head>
+<body>
+    <h1>Ejercicios Resueltos y Explicaciones</h1>
+
+    <!-- Ejercicio 1 -->
+    <h2>1. Trabajar con objetos Date</h2>
+    <p>Crear objetos <code>Date</code> y realizar operaciones:</p>
+    <button onclick="ejercicio1a()">Mostrar fecha actual</button>
+    <button onclick="ejercicio1b()">Crear fecha desde texto</button>
+    <button onclick="ejercicio1c()">Crear fecha con datos</button>
+    <button onclick="ejercicio1e()">Incrementar 6 días</button>
+    <button onclick="ejercicio1f()">Diferencia con cumpleaños</button>
+    <pre id="resultado1"></pre>
+    <script>
+        function ejercicio1a() {
+            const fecha = new Date();
+            alert(`Fecha actual: ${fecha.toString()}`);
+        }
+
+        function ejercicio1b() {
+            const fecha = new Date("July 20 2017");
+            alert(`Fecha desde texto: ${fecha.toString()}`);
+        }
+
+        function ejercicio1c() {
+            const fecha = new Date(2017, 1, 15, 12, 35, 0);
+            alert(`Fecha desde datos: ${fecha.toString()}`);
+        }
+
+        function ejercicio1e() {
+            const fecha = new Date();
+            fecha.setDate(fecha.getDate() + 6);
+            document.getElementById('resultado1').innerText = `Fecha con 6 días más: ${fecha.toDateString()}`;
+        }
+
+        function ejercicio1f() {
+            const hoy = new Date();
+            const cumple = new Date(hoy.getFullYear(), 7, 25); // 25 de agosto como ejemplo
+            const diferenciaSegundos = Math.abs(hoy - cumple) / 1000;
+            const diferenciaDias = diferenciaSegundos / (3600 * 24);
+            document.getElementById('resultado1').innerText = `Diferencia con cumpleaños: ${Math.floor(diferenciaDias)} días (${Math.floor(diferenciaSegundos)} segundos)`;
+        }
+    </script>
+
+    <!-- Ejercicio 2 -->
+    <h2>2. Funciones desde botones</h2>
+    <button onclick="abrirLocalizacion()">Abrir localización</button>
+    <button onclick="actualizarPagina()">Actualizar página</button>
+    <button onclick="abrirVentana()">Abrir nueva ventana</button>
+    <button onclick="iniciarTemporizador()">Arrancar temporizador</button>
+    <pre id="resultado2"></pre>
+    <script>
+        function abrirLocalizacion() {
+            window.location.href = 'https://www.google.com';
+        }
+
+        function actualizarPagina() {
+            window.location.reload();
+        }
+
+        function abrirVentana() {
+            window.open('https://www.google.com', '_blank');
+        }
+
+        function iniciarTemporizador() {
+            setInterval(() => {
+                const ahora = new Date();
+                document.getElementById('resultado2').innerText = `Hora actual: ${ahora.toLocaleTimeString()}`;
+            }, 2000);
+        }
+    </script>
+
+    <!-- Ejercicio 3 -->
+    <h2>3. Intervalo de tiempo</h2>
+    <p>Mostrar el tiempo transcurrido hasta detener el contador:</p>
+    <button onclick="iniciarContador()">Iniciar contador</button>
+    <button onclick="detenerContador()">Detener contador</button>
+    <pre id="resultado3"></pre>
+    <script>
+        let contador = 0;
+        let intervalo;
+
+        function iniciarContador() {
+            intervalo = setInterval(() => {
+                contador++;
+            }, 1000);
+        }
+
+        function detenerContador() {
+            clearInterval(intervalo);
+            document.getElementById('resultado3').innerText = `Segundos transcurridos: ${contador}`;
+            contador = 0;
+        }
+    </script>
+
+    <!-- Ejercicio 4 -->
+    <h2>4. Operaciones con arrays</h2>
+    <p>Trabajar con arrays para realizar diversas operaciones:</p>
+    <button onclick="ejercicio4()">Ejecutar operaciones</button>
+    <pre id="resultado4"></pre>
+    <script>
+        function ejercicio4() {
+            let array1 = [1, 2, 3];
+            let array2 = [4, 5, 6];
+            let array3 = array1.concat(array2);
+            array3.pop();
+            array3.push(7);
+            array3.shift();
+            array3.unshift(0, 1);
+            let inverso = array3.slice().reverse();
+            let texto = ["Hola", "mundo"].join(" ");
+            let dividido = texto.split(" ");
+            document.getElementById('resultado4').innerText = `
+                Array concatenado: ${array3.join(", ")}
+                Array invertido: ${inverso.join(", ")}
+                Texto combinado: ${texto}
+                Texto dividido: ${dividido.join(", ")}`;
+        }
+    </script>
+
+    <!-- Continuar con los ejercicios restantes -->
+</body>
+</html>

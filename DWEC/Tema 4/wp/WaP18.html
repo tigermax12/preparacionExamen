@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td, th {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <table id="mixed">
+        <tbody>
+            <tr><td>Value One</td></tr>
+            <tr><td>Value Two</td></tr>
+            <tr><td>Value Three</td></tr>
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const rows = document.querySelectorAll("#mixed tr");
+
+            rows.forEach(row => {
+                row.addEventListener("click", () => {
+                    row.remove(); // Elimina la fila seleccionada
+                });
+            });
+        });
+    </script>
+</body>
+</html>

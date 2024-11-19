@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script 3.8>
+      var dias = [
+        "Lunes",
+        "Martes",
+        "Miercoles",
+        "Jueves",
+        "Viernes",
+        "Sábado",
+        "Domingo",
+      ];
+
+      var laborables = dias.slice(0, 5);
+      var festivos = dias.slice(5);
+    </script>
+
+    <script 3.9>
+      var alumnos = ["Sanchez - Julian", "López - Luis", "Cuesta - José"];
+
+      alumnos.sort();
+
+      alumnos.reverse();
+    </script>
+
+    <script WP 3>
+      var original = [
+        4, 0, 3, 4, 7, 3, 5, 8, 1, 8, 8, 0, 2, 3, 1, 2, 5, 7, 3, 2, 5, 1,
+      ];
+
+      var sinRepetir = Array.from(new Set(original));
+
+      sinRepetir.sort(function (a, b) {
+        return a - b;
+      });
+    </script>
+
+    <script WP 4>
+      var original = [
+        4, 0, 3, 4, 7, 3, 5, 8, 1, 8, 8, 0, 2, 3, 1, 2, 5, 7, 3, 2, 5, 1,
+      ];
+      var posiciones = [];
+      var posicion = original.indexOf(3);
+
+      // Recorre el array usando indexOf() para encontrar todas las ocurrencias de 3
+      while (posicion !== -1) {
+        posiciones.push(posicion); // Añadir la posición al array
+        posicion = original.indexOf(3, posicion + 1); // Buscar la siguiente ocurrencia
+      }
+    </script>
+
+    <script WP 5>
+      var original = [
+        4, 0, 3, 4, 7, 3, 5, 8, 1, 8, 8, 0, 2, 3, 1, 2, 5, 7, 3, 2, 5, 1,
+      ];
+
+      // Ordenar los elementos colocando los pares primero
+      original.sort(function (a, b) {
+        // Si a es par y b no lo es, a va primero (devolver negativo)
+        if (a % 2 === 0 && b % 2 !== 0) {
+          return -1;
+        }
+        // Si a no es par y b lo es, b va primero (devolver positivo)
+        if (a % 2 !== 0 && b % 2 === 0) {
+          return 1;
+        }
+        // Si ambos son pares o impares, mantener el orden relativo
+        return 0;
+      });
+    </script>
+  </body>
+</html>

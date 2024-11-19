@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título</title>
+  </head>
+  <body>
+    <script>
+      var fechaActual = new Date();
+      var fechaCumple = new Date(2025, 4, 13);
+      var tiempoRestante = fechaCumple - fechaActual;
+      tiempoRestante = tiempoRestante;
+      var segundos=0;
+      var minutos=0;
+      var horas=0;
+      var dias=0;
+      var meses=0;
+
+      while (tiempoRestante > 1000) {
+        segundos += tiempoRestante/ 1000;
+        tiempoRestante %= 1000;
+        while (segundos > 60) {
+          minutos += segundos / 60;
+          segundos %= 60;
+          while (minutos > 60) {
+            horas += minutos / 60;
+            minutos %= 60;
+            while (horas > 24) {
+              dias += horas / 24;
+              horas %= 24;
+              while (dias > 30) {
+                meses += dias / 30;
+                dias %= 30;
+              }
+            }
+          }
+        }
+      }
+      
+      alert(
+        "Quedan " +
+          Math.floor(meses) +
+          " meses, " +
+          Math.floor(dias) +
+          " días, " +
+          Math.floor(horas) +
+          " horas, " +
+          Math.floor(minutos) +
+          " minutos, y " +
+          Math.floor(segundos) +
+          " segundos para que sea mi cumpleaños."
+      );
+    </script>
+  </body>
+</html>

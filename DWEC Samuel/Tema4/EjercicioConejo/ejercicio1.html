@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            position: absolute;
+        }
+    </style>
+    <script>
+        //Escribe aqui tu codigo
+        //setInterval, innerHeight, Math.random(), propiedad style.left, style.top
+        //window
+        window.onload= function(){
+        var imagen = document.getElementById('foto');
+        var intervalId = setInterval(desplazarImagen, 1000);
+        
+
+        function desplazarImagen() {
+
+                const nuevaX = Math.floor(Math.random() * (window.innerWidth - imagen.width));
+                const nuevaY = Math.floor(Math.random() * (window.innerHeight - imagen.height));
+                //imagen.moveTo(nuevaX, nuevaY);
+
+                imagen.style.left= nuevaX + "px";
+                imagen.style.top= nuevaY + "px";
+            }
+        }
+    </script>
+</head>
+<body>
+    <img id="foto" src="./images/rabbit-skip.gif" alt="">
+</body>
+</html>

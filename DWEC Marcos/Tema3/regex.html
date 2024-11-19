@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título</title>
+  </head>
+  <body>
+    <script>
+      function validarCorreo(correo) {
+        patron = /^[a-z]+@{1}[a-z]+\.[a-z]{3}$/;
+        regex = new RegExp(patron);
+        console.log(typeof patron);
+        if (correo.match(regex)) {
+          console.log("Correo " + correo + " válido");
+        } else {
+          console.log("Correo " + correo + " no válido");
+        }
+      }
+      validarCorreo("micorreo1@gmail.com");
+      validarCorreo("micorreo-gmail.com");
+      validarCorreo("micorreo@yahoo.es");
+      validarCorreo("micorreo@gmail.com@yahoo.es");
+      validarCorreo("micorreo@@gmail.com");
+      validarCorreo("MiCorreo@gmail.com");
+      validarCorreo("micorreo@gmail.com");
+    </script>
+  </body>
+</html>

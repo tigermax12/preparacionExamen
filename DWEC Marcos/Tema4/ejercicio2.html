@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título</title>
+    <style>
+        img {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="images/murci.jpg" alt id="img" style="width: 150px;height: 150px;">
+    <button onclick="reiniciarVelocidad()">Reiniciar Velocidad</button>
+    <button onclick="aumentarVelocidad()">Aumentar velocidad</button>
+    <script>
+        const img = document.getElementById("img");
+
+        var velocidad = 100.1;
+        function reiniciarVelocidad() {
+            window.clearInterval(intervaloID);
+            velocidad = 100.1;
+        }
+        function aumentarVelocidad() {
+            window.clearInterval(intervaloID);
+            if(velocidad <=10){
+                velocidad -=0.5;
+            }
+            else{
+                velocidad -=10;
+            }
+            intervaloID = window.setInterval(moverMurci, velocidad);
+            console.log(velocidad);
+        }
+        var intervaloID = window.setInterval(moverMurci, velocidad);
+        var posX = 0;
+        var posY = 0;
+        flagX = false;
+        flagY = false;
+        function moverMurci() {
+            let ancho = window.innerWidth - 150;
+            let alto = window.innerHeight - 150;
+
+            if (flagX) {
+                posX--;
+                if (posX == 0) {
+                    flagX = false;
+                }
+            }
+            else {
+                posX++;
+                if (posX == ancho) {
+                    flagX = true;
+                }
+            }
+            if (flagY) {
+                posY--;
+                if (posY == 0) {
+                    flagY = false;
+                }
+            }
+            else {
+                posY++;
+                if (posY == alto) {
+                    flagY = true;
+                }
+            }
+            
+            img.style.left = posX + "px";
+            img.style.top = posY + "px";
+        }
+    </script>
+</body>
+
+</html>

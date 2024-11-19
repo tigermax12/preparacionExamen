@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Título</title>
+    </head>
+    <body>
+        <script>
+            class Stack{
+                constructor(in_items){
+                    this.items = in_items || [];
+                }
+                length() {
+                    return this.items.length;
+                }
+                stack(el){
+                    this.items.push(el);
+                }
+                unstack(){
+                    return this.length() > 0 ?this.items.pop() : undefined;
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var ventanaSecundaria;
+            function abrirVentana(){
+                ventanaSecundaria= window.open("http://www.jesuitasrioja.org", "Nueva Ventana", "width=100,height=100");
+        }
+        function redimensionarVentana(){
+            ventanaSecundaria.resizeTo(500, 500);
+        }
+    </script>
+    <input type="button" value="abrirVentana" onclick="abrirVentana()">
+    <input type="button" value="Redimensionar" onclick="redimensionarVentana()">
+</body>
+</html>

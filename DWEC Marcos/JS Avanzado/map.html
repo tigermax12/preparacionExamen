@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Título</title>
+    <script>
+
+        const mapEjemplo = new Map([["a", 1],["b",1]]);
+        console.log(typeof(mapEjemplo))
+        document.write(mapEjemplo.has('a')+"</br>");
+        document.write(mapEjemplo.has('c')+"</br>");
+
+        mapEjemplo.set('c',5);
+        document.write(mapEjemplo.get("c")+"</br>");
+
+        document.write(mapEjemplo.delete('a'));
+
+        const newObj = {};
+
+        mapEjemplo.set(newObj,5);
+        console.log(mapEjemplo);
+        mapEjemplo.delete({});
+        mapEjemplo.set(new Object("Name",4,"5"),3232);
+        console.log(mapEjemplo);
+        mapEjemplo.delete(newObj);
+        console.log(mapEjemplo);
+    </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

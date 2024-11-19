@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDIV">
+    <p><strong>Note:</strong> The addEventListener() and removeEventListener() methods are </p>
+    <p id="demo"></p>
+    </div>
+    <button onclick="removeHandler">Detener el listener</button>
+    <script>
+        document.getElementById("myDIV").addEventListener("mouseover", myFunction);
+        function myFunction() {
+            document.getElementById("demo").innerHTML = Math.random();
+        }
+
+        function removeHandler(){
+            document.getElementById("myDIV").removeEventListener("mouseover", myFunction);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        function guardar(){
+            localStorage.setItem('nombre', document.getElementById('nombre').value);
+            localStorage.setItem('apellido', document.getElementById('apellido').value); 
+        }
+        function mostrar(){
+            document.getElementById("lista").innerHTML += localStorage.getItem("nombre")+" ";
+            document.getElementById("lista").innerHTML += localStorage.getItem("apellido")+"</br>";
+        }
+    </script>
+</head>
+<body>
+    <h1>Ejemplo - localStorage</h1>
+    <input type="text" id="nombre" placeholder="Nombre">
+    <input type="text" id="apellido" placeholder="Apellido">
+    <button onclick="guardar()">Guardar</button>
+    
+    <button onclick="mostrar()">Mostrar</button>
+    <p id="lista"></p>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título</title>
+  </head>
+  <body>
+    <div id="elementosTag">
+      <h3>modificacion tamaño de texto</h3>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
+        eos assumenda, reiciendis quod error dolores voluptatem eius! Labore
+        illum, ducimus optio ut asperiores magni numquam, praesentium explicabo
+        fuga, expedita consequatur.
+      </p>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa amet
+        quas explicabo quam dolores possimus nemo non, cum qui! Ratione
+        assumenda sunt nobis incidunt adipisci voluptas praesentium illum nulla
+        accusamus?
+      </p>
+    </div>
+    <div>
+      <span>Seleccionar color:</span>
+      <select name="" id="cboSize">
+        <option id="10">Red</option>
+        <option id="12">Green</option>
+        <option id="14">Yellow</option>
+      </select>
+      <button id="actualizar" onclick="modificarSize();">Cambiar color</button>
+    <script>
+        function modificarSize(){
+            var parrafos = document.getElementsByTagName('p');
+            for(let i = 0; i<parrafos.length;i++){
+                parrafos[i].style.color=document.getElementById('cboSize').value;
+            }
+        }
+    </script>
+    </div>
+  </body>
+</html>

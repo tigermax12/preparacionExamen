@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 7: Formulario de Suscripción</title>
+</head>
+<body>
+    <h2>Ejercicio 7: Formulario de Suscripción</h2>
+    <form id="suscripcion-form">
+        <label>Nombre: <input type="text" id="nombre" required></label><br>
+        <label>NIF: <input type="text" id="nif" required></label><br>
+        <label>Correo Electrónico: <input type="email" id="correo" required></label><br>
+        <label>País de Residencia: 
+            <select id="pais" required>
+                <option value="España">España</option>
+                <option value="Italia">Italia</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </label><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById("suscripcion-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const pais = document.getElementById("pais").value;
+            const correo = document.getElementById("correo").value;
+            const nif = document.getElementById("nif").value;
+
+            const nifRegex = /^[0-9]{8,9}[A-Z]$/; // 8-9 dígitos seguidos de una letra
+            const correoInvalido = /(hotmail\.com|yahoo\.es)$/;
+
+            let mensaje = "";
+
+            // Validar país
+            if (pais !== "España" && pais !== "Italia") {
+                mensaje += "El país debe ser España o Italia.<br>";
+            }
+
+            // Validar correo
+            if (correoInvalido.test(correo)) {
+                mensaje += "El correo no puede ser de hotmail.com ni yahoo.es.<br>";
+            }
+
+            // Validar NIF
+            if (!nifRegex.test(nif) || /[XMI]/.test(nif.slice(-1))) {
+                mensaje += "El NIF debe ser de formato válido (8-9 dígitos seguidos de una letra válida).<br>";
+            }
+
+            // Mostrar resultados
+            if (mensaje === "") {
+                mensaje = "Formulario válido. Datos enviados correctamente.";
+            }
+
+            document.getElementById("resultado").innerHTML = mensaje;
+        });
+    </script>
+</body>
+</html>

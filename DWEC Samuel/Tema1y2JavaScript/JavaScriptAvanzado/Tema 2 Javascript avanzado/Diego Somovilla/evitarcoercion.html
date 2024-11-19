@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Operaciones y comentarios corregidos
+        console.log('180' + 200 + 3); // '1802003' - La concatenación convierte a todos en string.
+
+        console.log('hola' ++ 'mundo'); // 'holaNaN' - El uso de ++ es incorrecto para strings.
+
+        console.log(!+[] + [] + ![]); // 'truefalse' - Explicación: !+[] es true, ![] es false.
+
+        if ('true' == true) {
+            console.log("No entra porque 'true' como string no es igual a true booleano.");
+        }
+
+        if ('true') {
+            console.log("Entra porque cualquier string no vacío se evalúa como true.");
+        }
+
+        // Esta línea tiene un error de sintaxis. Corrigiendo:
+        if (!1 + "false" == !1 + "true") { 
+            console.log("Se evalúa como true porque !1 es false y 'false' + 'false' == 'false' + 'true'.");
+        }
+
+        if (0) {
+            console.log("No entra porque 0 se evalúa como false.");
+        }
+
+        if (38) {
+            console.log("Entra porque cualquier número diferente de 0 se evalúa como true.");
+        }
+    </script>
+</body>
+</html>
