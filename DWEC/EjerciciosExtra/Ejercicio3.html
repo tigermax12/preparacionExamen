@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #contenedorTareas {
+            margin-top: 20px;
+        }
+        .tarea {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .tarea label {
+            margin-left: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const CLAVE_LOCALSTORAGE = "tareas";
+    let tareas = [];
+
+    // Selección de elementos del DOM
+    const contenedorTareas = document.getElementById("contenedorTareas");
+    const inputNuevaTarea = document.getElementById("inputNuevaTarea");
+    const btnGuardarTarea = document.getElementById("btnGuardarTarea");
+    const btnLimpiarTareas = document.getElementById("btnLimpiarTareas");
+
+    // Función para guardar una tarea nueva
+    function guardarTarea() {
+        const nuevaTarea = inputNuevaTarea.value.trim();
+        if (nuevaTarea) {
+            tareas.push({ tarea: nuevaTarea, terminada: false });
+            inputNuevaTarea.value = ""; // Limpia el input
+            guardarTareasEnAlmacenamiento();
+            refrescarTareas();
+        }
+    }
+
+    // Función para guardar tareas en el LocalStorage
+    function guardarTareasEnAlmacenamiento() {
+        localStorage.setItem(CLAVE_LOCALSTORAGE, JSON.stringify(tareas));
+    }
+
+    // Función para obtener tareas desde el LocalStorage
+    function obtenerTareasDeAlmacenamiento() {
+        const tareasAlmacenadas = localStorage.getItem(CLAVE_LOCALSTORAGE);
+        return tareasAlmacenadas ? JSON.parse(tareasAlmacenadas) : [];
+    }
+
+    // Función para actualizar la lista de tareas en el DOM
+    function refrescarTareas() {
+        contenedorTareas.innerHTML = ""; // Limpia el contenedor
+        tareas.forEach((item, index) => {
+            const tareaElement = document.createElement("div");
+            tareaElement.className = "tarea";
+
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.checked = item.terminada;
+            checkbox.addEventListener("change", () => {
+                tareas[index].terminada = checkbox.checked;
+                guardarTareasEnAlmacenamiento();
+                refrescarTareas();
+            });
+
+            const label = document.createElement("label");
+            label.textContent = item.tarea;
+            if (item.terminada) {
+                label.style.textDecoration = "line-through";
+            }
+
+            tareaElement.appendChild(checkbox);
+            tareaElement.appendChild(label);
+            contenedorTareas.appendChild(tareaElement);
+        });
+    }
+
+    // Función para limpiar tareas terminadas
+    function limpiarTareas() {
+        if (confirm("¿Estás seguro de que quieres borrar las tareas terminadas?")) {
+            tareas = tareas.filter((item) => !item.terminada);
+            guardarTareasEnAlmacenamiento();
+            refrescarTareas();
+        }
+    }
+
+    // Inicialización
+    tareas = obtenerTareasDeAlmacenamiento();
+    refrescarTareas();
+
+    // Asignación de eventos
+    btnGuardarTarea.addEventListener("click", guardarTarea);
+    btnLimpiarTareas.addEventListener("click", limpiarTareas);
+});
+    </script>
+</head>
+<body>
+    <h1>Gestor de Tareas</h1>
+    <input type="text" id="inputNuevaTarea" placeholder="Nueva tarea" />
+    <button id="btnGuardarTarea">Guardar Tarea</button>
+    <button id="btnLimpiarTareas">Limpiar Tareas Terminadas</button>
+    <div id="contenedorTareas"></div>
+</body>
+</html>

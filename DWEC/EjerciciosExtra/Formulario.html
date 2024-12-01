@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario con Validación</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+    .success {
+      color: green;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Formulario de Registro</h1>
+  <form id="registroForm" method="POST" action="/procesar_formulario">
+    <div>
+      <label for="nombre">Nombre:</label><br>
+      <input type="text" id="nombre" name="nombre" required>
+      <div id="nombreError" class="error"></div>
+    </div>
+    <div>
+      <label for="contrasena">Contraseña:</label><br>
+      <input type="password" id="contrasena" name="contrasena" required>
+      <div id="contrasenaError" class="error"></div>
+    </div>
+    <button type="submit">Registrar</button>
+  </form>
+
+  <script>
+    document.getElementById('registroForm').addEventListener('submit', function(event) {
+      let esValido = true;
+
+      // Validación del nombre
+      const nombre = document.getElementById('nombre').value.trim();
+      const nombreError = document.getElementById('nombreError');
+      if (nombre === "") {
+        esValido = false;
+        nombreError.textContent = "El nombre es obligatorio.";
+      } else {
+        nombreError.textContent = "";
+      }
+
+      // Validación de la contraseña
+      const contrasena = document.getElementById('contrasena').value;
+      const contrasenaError = document.getElementById('contrasenaError');
+      const regexContrasena = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,10}$/;
+
+      if (!regexContrasena.test(contrasena)) {
+        esValido = false;
+        contrasenaError.textContent = 
+          "La contraseña debe tener entre 6 y 10 caracteres, incluir al menos una mayúscula, una minúscula, un número y un carácter especial.";
+      } else {
+        contrasenaError.textContent = "";
+      }
+
+      // Si no es válido, se previene el envío del formulario
+      if (!esValido) {
+        event.preventDefault();
+      }
+    });
+  </script>
+  <!--
+  Elementos Básicos
+Carácter Literal:
+
+Coincide exactamente con el carácter escrito.
+Ejemplo: abc coincide con "abc" en el texto.
+Metacaracteres Especiales: Algunos caracteres tienen un significado especial. Si quieres usarlos literalmente, escápalos con \.
+
+Ejemplo: . (punto) significa "cualquier carácter". Para buscar un punto literal, usa \..
+Clases de Caracteres
+Clases Predefinidas:
+
+\d: Cualquier dígito (0-9).
+\w: Cualquier carácter alfanumérico (letras, números o _).
+\s: Cualquier espacio en blanco (incluye espacios, tabulaciones, saltos de línea).
+Negaciones:
+
+\D: Cualquier carácter que no sea un dígito.
+\W: Cualquier carácter no alfanumérico.
+\S: Cualquier carácter que no sea un espacio en blanco.
+Conjuntos Personalizados:
+
+[abc]: Coincide con cualquiera de los caracteres entre corchetes (a, b o c).
+[a-z]: Rango de caracteres. Coincide con cualquier letra minúscula.
+[^abc]: Coincide con cualquier carácter que no sea a, b o c.
+Cuantificadores
+Básicos:
+
+*: Cero o más repeticiones.
++: Una o más repeticiones.
+?: Cero o una repetición.
+Cantidad Exacta:
+
+{n}: Exactamente n repeticiones.
+{n,}: Al menos n repeticiones.
+{n,m}: Entre n y m repeticiones.
+Anclas
+Inicio y Fin:
+
+^: Inicio de la cadena.
+$: Fin de la cadena.
+Ejemplo: ^hola$ coincide solo con "hola" como cadena completa.
+Anclas de Palabra:
+
+\b: Límite de palabra.
+\B: No es un límite de palabra.
+Grupos y Alternativas
+Grupos:
+
+(abc): Agrupa caracteres para tratarlos como una sola unidad.
+Ejemplo: (abc)+ coincide con "abc", "abcabc", etc.
+Alternativas:
+
+a|b: Coincide con "a" o "b".
+Ejemplo: rojo|azul coincide con "rojo" o "azul".
+Ejemplo Explicado
+Supongamos que tienes esta regex:
+
+regex
+Copiar código
+^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,10}$
+Desglose:
+
+^: La cadena debe comenzar aquí.
+(?=.*[a-z]): Debe contener al menos una letra minúscula.
+(?=.*[A-Z]): Debe contener al menos una letra mayúscula.
+(?=.*\d): Debe contener al menos un número.
+(?=.*[\W_]): Debe contener al menos un carácter especial (no alfanumérico).
+.{6,10}: La cadena debe tener entre 6 y 10 caracteres.
+$: La cadena debe terminar aquí.
+Consejos para Practicar
+Utiliza herramientas interactivas como Regex101 o RegExr para probar tus expresiones y entender cómo funcionan.
+Comienza con patrones simples y añade complejidad gradualmente.
+  -->
+</body>
+</html>
